@@ -1,0 +1,993 @@
+            out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 1
+
+							                        ;* No entry point to code
+038F:0016  E8 01CE				call	sub_6			; (01E7)
+038F:0019  12 00				adc	al,[bx+si]
+038F:001B  46					inc	si
+038F:001C  07					pop	es
+038F:001D  0A 02				or	al,[bp+si]
+038F:001F  E8 01C5				call	sub_6			; (01E7)
+038F:0022  1B 00				sbb	ax,[bx+si]
+038F:0024  0A 04				or	al,[si]
+038F:0026  0A 02				or	al,[bp+si]
+038F:0028  EB 02				jmp	short loc_1		; (002C)
+038F:002A  90 00				db	 90h, 00h
+038F:002C			loc_1:						;  xref 038F:0028
+038F:002C  E8 01B8				call	sub_6			; (01E7)
+038F:002F  24 00				and	al,0
+038F:0031  A4					movsb				; Mov [si] to es:[di]
+038F:0032  0C 0A				or	al,0Ah
+038F:0034  02 E8				add	ch,al
+038F:0036  AF					scasw				; Scan es:[di] for ax
+038F:0037  01 31				add	[bx+di],si
+038F:0039  00 EB				add	bl,ch
+038F:003B  10 FF				adc	bh,bh
+038F:003D  03 0A				add	cx,[bp+si]
+038F:003F  02 4B 42				add	cl,[bp+di+42h]
+038F:0042  00 EB				add	bl,ch
+038F:0044  0C 00				or	al,0
+038F:0046  00 00 00 00 00 00			db	 00h, 00h, 00h, 00h, 00h, 00h
+038F:004C  E8 98 01 3C 00 E9			db	0E8h, 98h, 01h, 3Ch, 00h,0E9h
+038F:0052  32 01 EB 10 FF 03			db	 32h, 01h,0EBh, 10h,0FFh, 03h
+038F:0058  0A 02 4B 42 00 EB			db	 0Ah, 02h, 4Bh, 42h, 00h,0EBh
+038F:005E  0C 00 00 00 00 00			db	 0Ch, 00h, 00h, 00h, 00h, 00h
+038F:0064  00 00 E8 7E 01 56			db	 00h, 00h,0E8h, 7Eh, 01h, 56h
+038F:006A  00 E9 18 01 EB 10			db	 00h,0E9h, 18h, 01h,0EBh, 10h
+038F:0070  FF 03 0A 02 4B 42			db	0FFh, 03h, 0Ah, 02h, 4Bh, 42h
+038F:0076  00 EB 0C 00 00 00			db	 00h,0EBh, 0Ch, 00h, 00h, 00h
+038F:007C  00 00 00 00				db	 00h, 00h, 00h, 00h
+038F:0080			loc_2:
+038F:0080  E8 0164				call	sub_6			; (01E7)
+038F:0083  70 00				jo	$+2			; delay for I/O
+038F:0085  E9 00FE				jmp	loc_9			; (0186)
+038F:0088  EB 10 FF 03 0A 02			db	0EBh, 10h,0FFh, 03h, 0Ah, 02h
+038F:008E  4B 42 00 EB 0C 00			db	 4Bh, 42h, 00h,0EBh, 0Ch, 00h
+038F:0094  00 00 00 00 00 00			db	 00h, 00h, 00h, 00h, 00h, 00h
+038F:009A  E8 4A 01 8A 00 E9			db	0E8h, 4Ah, 01h, 8Ah, 00h,0E9h
+038F:00A0  E4 00 EB 10 B3 07			db	0E4h, 00h,0EBh, 10h,0B3h, 07h
+038F:00A6  0A 02 4B 42 00 EB			db	 0Ah, 02h, 4Bh, 42h, 00h,0EBh
+038F:00AC  0C 00 00 00 00 00			db	 0Ch, 00h, 00h, 00h, 00h, 00h
+038F:00B2  00 00 E8 30 01 A4			db	 00h, 00h,0E8h, 30h, 01h,0A4h
+038F:00B8  00 E9 CA 00 EB 10			db	 00h,0E9h,0CAh, 00h,0EBh, 10h
+038F:00BE  B4 06 0A 02 4B 42			db	0B4h, 06h, 0Ah, 02h, 4Bh, 42h
+038F:00C4  00 EB 0C 00 00 00			db	 00h,0EBh, 0Ch, 00h, 00h, 00h
+038F:00CA  00 00 00 00 E8 16			db	 00h, 00h, 00h, 00h,0E8h, 16h
+038F:00D0  01 BE 00 E9 B0 00			db	 01h,0BEh, 00h,0E9h,0B0h, 00h
+038F:00D6  EB 10 B4 06 0A 02			db	0EBh, 10h,0B4h, 06h, 0Ah, 02h
+038F:00DC  4B 42 00 EB 0C 00			db	 4Bh, 42h, 00h,0EBh, 0Ch, 00h
+038F:00E2  00 00 00 00 00 00			db	 00h, 00h, 00h, 00h, 00h, 00h
+038F:00E8  E8 FC 00 D8 00 E9			db	0E8h,0FCh, 00h,0D8h, 00h,0E9h
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 2
+
+038F:00EE  96 00 EB 10 B4 06			db	 96h, 00h,0EBh, 10h,0B4h, 06h
+038F:00F4  0A 02 4B 42 00 EB			db	 0Ah, 02h, 4Bh, 42h, 00h,0EBh
+038F:00FA  0C 00 00 00 00 00			db	 0Ch, 00h, 00h, 00h, 00h, 00h
+038F:0100  00 00 E8 E2 00 F2			db	 00h, 00h,0E8h,0E2h, 00h,0F2h
+038F:0106  00 EB 7D 90 EB 10			db	 00h,0EBh, 7Dh, 90h,0EBh, 10h
+038F:010C  B4 06 0A 02 4B 42			db	0B4h, 06h, 0Ah, 02h, 4Bh, 42h
+038F:0112  00 EB				db	 00h,0EBh
+038F:0114  000C 0000		data_32		dw	0Ch, 0			;  xref 038F:0956
+038F:0118  0000 0000		data_33		dd	00000h			;  xref 038F:0960
+038F:011C  C8E8 0C00		data_34		dw	0C8E8h, 0C00h		;  xref 038F:096A
+038F:0120  EB01 9063		data_35		dw	0EB01h, 9063h		;  xref 038F:0974
+038F:0124  10EB 06B4		data_36		dw	10EBh, 6B4h		;  xref 038F:097E
+038F:0128  020A 424B		data_37		dw	20Ah, 424Bh		;  xref 038F:0988
+038F:012C  EB00 000C		data_38		dw	0EB00h, 0Ch		;  xref 038F:09E3
+038F:0130  0000 0000		data_39		dd	00000h			;  xref 038F:09AB, 09BE
+038F:0134  00			data_40		db	0			;  xref 038F:098F
+038F:0135  00 E8 AE 00 26 01			db	 00h,0E8h,0AEh, 00h, 26h, 01h
+038F:013B  EB 49 90				db	0EBh, 49h, 90h
+
+				;ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+				;                              SUBROUTINE
+				;
+				;         Called from:   038F:0297
+				;ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+
+				sub_5		proc	near
+038F:013E  1E					push	ds
+038F:013F  50					push	ax
+038F:0140  B8 0040				mov	ax,40h
+038F:0143  8E D8				mov	ds,ax
+038F:0145  9F					lahf				; Load ah from flags
+038F:0146  F7 06 0314 2400			test	word ptr ds:[314h],2400h	; (0040:0314=3200h)
+038F:014C  75 0C				jnz	loc_4			; Jump if not zero
+038F:014E  F0> 81 26 0314 FDFF	                           lock	and	word ptr ds:[314h],0FDFFh	; (0040:0314=3200h)
+038F:0155			loc_3:						;  xref 038F:015B
+038F:0155 ú9E					sahf				; Store ah into flags
+038F:0156  58					pop	ax
+038F:0157  1F					pop	ds
+038F:0158  EB 03				jmp	short loc_ret_5		; (015D)
+038F:015A			loc_4:						;  xref 038F:014C
+038F:015A  FA					cli				; Disable interrupts
+038F:015B  EB F8				jmp	short loc_3		; (0155)
+
+038F:015D			loc_ret_5:					;  xref 038F:0158
+038F:015D  C3					retn
+				sub_5		endp
+
+							                        ;* No entry point to code
+038F:015E  1E					push	ds
+038F:015F  50					push	ax
+038F:0160  B8 0040				mov	ax,40h
+038F:0163  8E D8				mov	ds,ax
+038F:0165  9F					lahf				; Load ah from flags
+038F:0166  F7 06 0314 0003			test	word ptr ds:[314h],3	; (0040:0314=3200h)
+038F:016C  75 14				jnz	loc_7			; Jump if not zero
+038F:016E  F7 06 0314 2400			test	word ptr ds:[314h],2400h	; (0040:0314=3200h)
+038F:0174  75 0C				jnz	loc_7			; Jump if not zero
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 3
+
+038F:0176  F0> 81 0E 0314 0200	                           lock	or	word ptr ds:[314h],200h	; (0040:0314=3200h)
+038F:017D			loc_6:						;  xref 038F:0183
+038F:017D ú9E					sahf				; Store ah into flags
+038F:017E  58					pop	ax
+038F:017F  1F					pop	ds
+038F:0180  EB 03				jmp	short loc_ret_8		; (0185)
+038F:0182			loc_7:						;  xref 038F:016C, 0174
+038F:0182  FB					sti				; Enable interrupts
+038F:0183  EB F8				jmp	short loc_6		; (017D)
+
+038F:0185			loc_ret_8:					;  xref 038F:0180
+038F:0185  C3					retn
+038F:0186			loc_9:						;  xref 038F:0085, 024C
+038F:0186 ú1E					push	ds
+038F:0187  50					push	ax
+038F:0188  B8 0040				mov	ax,40h
+038F:018B  8E D8				mov	ds,ax
+038F:018D  F7 06 0314 2400			test	word ptr ds:[314h],2400h	; (0040:0314=3200h)
+038F:0193  75 4F				jnz	loc_17			; Jump if not zero
+038F:0195  55					push	bp
+038F:0196  8B EC				mov	bp,sp
+038F:0198  8B 46 0A				mov	ax,[bp+0Ah]
+038F:019B  5D					pop	bp
+038F:019C  A9 0100				test	ax,100h
+038F:019F  75 43				jnz	loc_17			; Jump if not zero
+038F:01A1  A9 0200				test	ax,200h
+038F:01A4  74 22				jz	loc_13			; Jump if zero
+038F:01A6  F0> 81 0E 0314 0200	                           lock	or	word ptr ds:[314h],200h	; (0040:0314=3200h)
+038F:01AD  F7 06 0314 0003			test	word ptr ds:[314h],3	; (0040:0314=3200h)
+038F:01B3  75 2F				jnz	loc_17			; Jump if not zero
+038F:01B5			loc_10:						;  xref 038F:01CF
+038F:01B5 ú86 E0				xchg	ah,al
+038F:01B7  FC					cld				; Clear direction
+038F:01B8  A8 04				test	al,4
+038F:01BA  75 25				jnz	loc_16			; Jump if not zero
+038F:01BC			loc_11:						;  xref 038F:01E2
+038F:01BC úA8 08				test	al,8
+038F:01BE  75 11				jnz	loc_14			; Jump if not zero
+038F:01C0  70 19				jo	loc_15			; Jump if overflow=1
+038F:01C2			loc_12:						;  xref 038F:01D1, 01D9, 01DF
+038F:01C2 ú9E					sahf				; Store ah into flags
+038F:01C3  58					pop	ax
+038F:01C4  1F					pop	ds
+038F:01C5  CA 0002				retf	2			; Return far
+038F:01C8			loc_13:						;  xref 038F:01A4
+038F:01C8  F0> 81 26 0314 FDFF	                           lock	and	data_44,0FDFFh		; (038F:0314=0)
+038F:01CF  EB E4				jmp	short loc_10		; (01B5)
+038F:01D1			loc_14:						;  xref 038F:01BE
+038F:01D1  70 EF				jo	loc_12			; Jump if overflow=1
+038F:01D3  50					push	ax
+038F:01D4  B0 7F				mov	al,7Fh
+038F:01D6  04 02				add	al,2
+038F:01D8  58					pop	ax
+038F:01D9  EB E7				jmp	short loc_12		; (01C2)
+038F:01DB			loc_15:						;  xref 038F:01C0
+038F:01DB  50					push	ax
+038F:01DC  32 C0				xor	al,al			; Zero register
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 4
+
+038F:01DE  58					pop	ax
+038F:01DF  EB E1				jmp	short loc_12		; (01C2)
+038F:01E1			loc_16:						;  xref 038F:01BA
+038F:01E1  FD					std				; Set direction flag
+038F:01E2  EB D8				jmp	short loc_11		; (01BC)
+038F:01E4			loc_17:						;  xref 038F:0193, 019F, 01B3
+038F:01E4  58					pop	ax
+038F:01E5  1F					pop	ds
+038F:01E6  CF					iret				; Interrupt return
+
+				;ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+				;                              SUBROUTINE
+				;
+				;         Called from:   038F:0016, 001F, 002C, 0080
+				;ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+
+				sub_6		proc	near
+038F:01E7  50					push	ax
+038F:01E8  55					push	bp
+038F:01E9  06					push	es
+038F:01EA  2E: 8E 06 000A			mov	es,word ptr cs:[0Ah]	; (038F:000A=3C0h)
+038F:01EF  2E: 8B 2E 0010			mov	bp,word ptr cs:[10h]	; (038F:0010=40h)
+038F:01F4  B0 01				mov	al,1
+038F:01F6  26: 86 46 00				xchg	es:[bp],al
+038F:01FA  3C 00				cmp	al,0
+038F:01FC  75 51				jne	loc_19			; Jump if not equal
+038F:01FE  2E: 83 2E 0010 08			sub	word ptr cs:[10h],8	; (038F:0010=40h)
+038F:0204			loc_18:						;  xref 038F:025A
+038F:0204 ú26: 89 66 02				mov	es:[bp+2],sp
+038F:0208  26: 8C 56 04				mov	es:[bp+4],ss
+038F:020C  8B C5				mov	ax,bp
+038F:020E  26: 8B 6E 06				mov	bp,es:[bp+6]
+038F:0212  26: 39 46 00				cmp	es:[bp],ax
+038F:0216  75 44				jne	loc_21			; Jump if not equal
+038F:0218  55					push	bp
+038F:0219  8B EC				mov	bp,sp
+038F:021B  8B 46 08				mov	ax,[bp+8]
+038F:021E  5D					pop	bp
+038F:021F  06					push	es
+038F:0220  17					pop	ss
+038F:0221  8B E5				mov	sp,bp
+038F:0223  8B E8				mov	bp,ax
+038F:0225  2E: 8B 6E 00				mov	bp,cs:[bp]
+038F:0229  9C					pushf				; Push flags
+038F:022A  2E: FF 5E 00				call	dword ptr cs:[bp]	;*
+038F:022E  8B EC				mov	bp,sp
+038F:0230  26: 8B 6E 00				mov	bp,es:[bp]
+038F:0234  26: 8E 56 04				mov	ss,es:[bp+4]
+038F:0238  26: 8B 66 02				mov	sp,es:[bp+2]
+038F:023C  26: C6 46 00 00			mov	byte ptr es:[bp],0
+038F:0241  2E: 89 2E 0010			mov	word ptr cs:[10h],bp	; (038F:0010=40h)
+038F:0246  07					pop	es
+038F:0247  5D					pop	bp
+038F:0248  58					pop	ax
+038F:0249  83 C4 02				add	sp,2
+038F:024C  E9 FF37				jmp	loc_9			; (0186)
+038F:024F			loc_19:						;  xref 038F:01FC
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 5
+
+038F:024F  3C 01				cmp	al,1
+038F:0251  74 04				je	loc_20			; Jump if equal
+038F:0253  26: 86 46 00				xchg	es:[bp],al
+038F:0257			loc_20:						;  xref 038F:0251, 0261, 026A
+038F:0257 úE8 0012				call	sub_7			; (026C)
+038F:025A  EB A8				jmp	short loc_18		; (0204)
+038F:025C			loc_21:						;  xref 038F:0216
+038F:025C  2E: 3B 2E 000C			cmp	bp,word ptr cs:[0Ch]	; (038F:000C=0)
+038F:0261  72 F4				jb	loc_20			; Jump if below
+038F:0263  8B E8				mov	bp,ax
+038F:0265  26: C6 46 00 03			mov	byte ptr es:[bp],3
+038F:026A  EB EB				jmp	short loc_20		; (0257)
+				sub_6		endp
+
+
+				;ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+				;                              SUBROUTINE
+				;
+				;         Called from:   038F:0257
+				;ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+
+				sub_7		proc	near
+038F:026C  2E: 8B 2E 000E			mov	bp,word ptr cs:[0Eh]	; (038F:000E=40h)
+038F:0271			loc_22:						;  xref 038F:0294
+038F:0271 ú26: 80 7E 00 00			cmp	byte ptr es:[bp],0
+038F:0276  75 12				jne	loc_24			; Jump if not equal
+038F:0278  B0 01				mov	al,1
+038F:027A  26: 86 46 00				xchg	es:[bp],al
+038F:027E  3C 00				cmp	al,0
+038F:0280  74 14				je	loc_ret_25		; Jump if equal
+038F:0282  3C 01				cmp	al,1
+038F:0284  74 04				je	loc_24			; Jump if equal
+038F:0286  26: 88 46 00				mov	es:[bp],al
+038F:028A			loc_24:						;  xref 038F:0276, 0284
+038F:028A  2E: 3B 2E 000C			cmp	bp,word ptr cs:[0Ch]	; (038F:000C=0)
+038F:028F  74 06				je	loc_26			; Jump if equal
+038F:0291  83 ED 08				sub	bp,8
+038F:0294  EB DB				jmp	short loc_22		; (0271)
+
+038F:0296			loc_ret_25:					;  xref 038F:0280
+038F:0296  C3					retn
+038F:0297			loc_26:						;  xref 038F:028F
+038F:0297  E8 FEA4				call	sub_5			; (013E)
+038F:029A  B0 FF				mov	al,0FFh
+038F:029C  E6 21				out	21h,al			; port 21h, 8259-1 int comands
+038F:029E  E6 A1				out	0A1h,al			; port 0A1h  al = 0FFh, inhibit interr
+038F:02A0  8C CE				mov	si,cs
+038F:02A2  8E DE				mov	ds,si
+038F:02A4  BE 02CB				mov	si,2CBh
+038F:02A7  50					push	ax
+038F:02A8  1E					push	ds
+038F:02A9  B8 0070				mov	ax,70h
+038F:02AC  8E D8				mov	ds,ax
+038F:02AE  F6 06 0337 01			test	byte ptr ds:[337h],1	; (0070:0337=0)
+038F:02B3  1F					pop	ds
+038F:02B4  58					pop	ax
+038F:02B5  74 05				jz	loc_27			; Jump if zero
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 6
+
+038F:02B7  9A 0070:0338		;*		call	far ptr sub_1		;*(0070:0338)
+038F:02B7  9A					db	9Ah
+038F:02B8  0338 0070				dw	338h, 70h
+038F:02BC			loc_27:						;  xref 038F:02B5, 02C7
+038F:02BC úAC					lodsb				; String [si] to al
+038F:02BD  3C 24				cmp	al,24h			; '$'
+038F:02BF  74 08				je	$+0Ah			; Jump if equal
+038F:02C1  B3 07				mov	bl,7
+038F:02C3  B4 0E				mov	ah,0Eh
+038F:02C5  CD 10				int	10h			; Video display   ah=functn 0Eh
+										;  write char al, teletype mode
+038F:02C7  EB F3				jmp	short loc_27		; (02BC)
+				sub_7		endp
+
+038F:02C9  EB FE 0D 0A 07 0D			db	0EBh,0FEh, 0Dh, 0Ah, 07h, 0Dh
+038F:02CF  0A 8F A5 E0 A5 AF			db	 0Ah, 8Fh,0A5h,0E0h,0A5h,0AFh
+038F:02D5  AE AB AD A5 AD A8			db	0AEh,0ABh,0ADh,0A5h,0ADh,0A8h
+038F:02DB  A5 20 A2 AD E3 E2			db	0A5h, 20h,0A2h,0ADh,0E3h,0E2h
+038F:02E1  E0 A5 AD AD A5 A3			db	0E0h,0A5h,0ADh,0ADh,0A5h,0A3h
+038F:02E7  AE 20 E1 E2 A5 AA			db	0AEh, 20h,0E1h,0E2h,0A5h,0AAh
+038F:02ED  A0 0D 0A 91 A8 E1			db	0A0h, 0Dh, 0Ah, 91h,0A8h,0E1h
+038F:02F3  E2 A5 AC A0 20 AE			db	0E2h,0A5h,0ACh,0A0h, 20h,0AEh
+038F:02F9  E1 E2 A0 AD AE A2			db	0E1h,0E2h,0A0h,0ADh,0AEh,0A2h
+038F:02FF  AB A5 AD A0 0D 0A			db	0ABh,0A5h,0ADh,0A0h, 0Dh, 0Ah
+038F:0305  24 07 00 09 69 00			db	 24h, 07h, 00h, 09h, 69h, 00h
+038F:030B  00 06 00 06 00 00			db	 00h, 06h, 00h, 06h, 00h, 00h
+038F:0311  00 00 00				db	 00h, 00h, 00h
+038F:0314  0000			data_44		dw	0			;  xref 038F:01C8
+038F:0316  C6					db	0C6h
+038F:0317  0007[00]				db	7 dup (0)
+038F:031E  46 01 00 00 00 00			db	 46h, 01h, 00h, 00h, 00h, 00h
+038F:0324  00 00 C6 01 00 00			db	 00h, 00h,0C6h, 01h, 00h, 00h
+038F:032A  00 00 00 00 46 02			db	 00h, 00h, 00h, 00h, 46h, 02h
+038F:0330  00			data_46		db	0			;  xref 038F:0C1E
+038F:0331  00 00 00 00 00 C6			db	 00h, 00h, 00h, 00h, 00h,0C6h
+038F:0337  02 00 00 00 00 00			db	 02h, 00h, 00h, 00h, 00h, 00h
+038F:033D  00 46 03 00 00 00			db	 00h, 46h, 03h, 00h, 00h, 00h
+038F:0343  00 00 00 C6 03 00			db	 00h, 00h, 00h,0C6h, 03h, 00h
+038F:0349  00 00 00 00 00 46			db	 00h, 00h, 00h, 00h, 00h, 46h
+038F:034F  04 00 00 06 06 FB			db	 04h, 00h, 00h, 06h, 06h,0FBh
+038F:0355  8D C6 04 00				db	 8Dh,0C6h, 04h, 00h
+038F:0359  00FD[00]				db	253 dup (0)
+038F:0456  08 00				db	8, 0
+038F:0458  007E[00]		data_48		db	126 dup (0)
+038F:04D6  10 00				db	 10h, 00h
+038F:04D8  007E[00]				db	126 dup (0)
+038F:0556  18 00				db	 18h, 00h
+038F:0558  007E[00]				db	126 dup (0)
+038F:05D6  20 00				db	 20h, 00h
+038F:05D8  003C[00]				db	60 dup (0)
+038F:0614  00			data_52		db	0			;  xref 038F:09D9, 09E8
+038F:0615  0041[00]				db	65 dup (0)
+038F:0656  28 00				db	 28h, 00h
+038F:0658  007E[00]				db	126 dup (0)
+038F:06D6  30 00				db	 30h, 00h
+038F:06D8  007E[00]				db	126 dup (0)
+038F:0756  38 00				db	 38h, 00h
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 7
+
+038F:0758  006C[00]				db	108 dup (0)
+038F:07C4  01 91 01 91 FB 8D			db	 01h, 91h, 01h, 91h,0FBh, 8Dh
+038F:07CA  F3 03 B7 00 FB 8D			db	0F3h, 03h,0B7h, 00h,0FBh, 8Dh
+038F:07D0  2E 02 8F 03 46 30			db	 2Eh, 02h, 8Fh, 03h, 46h, 30h
+038F:07D6  40 00 04 00 C3 3C			db	 40h, 00h, 04h, 00h,0C3h, 3Ch
+038F:07DC  00 00 06 00 4D 0E			db	 00h, 00h, 06h, 00h, 4Dh, 0Eh
+038F:07E2  04 B5 00 00 06 00			db	 04h,0B5h, 00h, 00h, 06h, 00h
+038F:07E8  43 4F 4D 4D 41 4E			db	 43h, 4Fh, 4Dh, 4Dh, 41h, 4Eh
+038F:07EE  44 00 CD 20 FF 9F			db	 44h, 00h,0CDh, 20h,0FFh, 9Fh
+038F:07F4  00 9A F0 FE 1D F0			db	 00h, 9Ah,0F0h,0FEh, 1Dh,0F0h
+038F:07FA  7F 01 0E 04 4B 01			db	 7Fh, 01h, 0Eh, 04h, 4Bh, 01h
+038F:0800  0E 04 56 01 0E 04			db	 0Eh, 04h, 56h, 01h, 0Eh, 04h
+038F:0806  0E 04 01 01 01 00			db	 0Eh, 04h, 01h, 01h, 01h, 00h
+038F:080C  02					db	 02h
+038F:080D  000F[FF]				db	15 dup (0FFh)
+038F:081C  CC 04 FA 05 0E 04			db	0CCh, 04h,0FAh, 05h, 0Eh, 04h
+038F:0822  14 00 18 00 0E 04			db	 14h, 00h, 18h, 00h, 0Eh, 04h
+038F:0828  FF FF FF FF 00 00			db	0FFh,0FFh,0FFh,0FFh, 00h, 00h
+038F:082E  00 00 05				db	 00h, 00h, 05h
+038F:0831  000F[00]				db	15 dup (0)
+038F:0840  CD 21 CB				db	0CDh, 21h,0CBh
+038F:0843  000A[00]				db	10 dup (0)
+038F:084D  000B[20]				db	11 dup (20h)
+038F:0858  00 00 00 00 00 20			db	 00h, 00h, 00h, 00h, 00h, 20h
+038F:085E  000A[20]				db	10 dup (20h)
+038F:0868  0009[00]				db	9 dup (0)
+038F:0871  0D 20 20 20 53 45			db	0Dh, '   SET BLASTER=A0', 0Dh
+038F:0877  54 20 42 4C 41 53
+038F:087D  54 45 52 3D 41 30
+038F:0883  0D
+038F:0884  AD A8 A5 20 A4 AB			db	0ADh,0A8h,0A5h, 20h,0A4h,0ABh
+038F:088A  EF 20 A1 A2 A7 AE			db	0EFh, 20h,0A1h,0A2h,0A7h,0AEh
+038F:0890  A2 AE A3 AE 20 AF			db	0A2h,0AEh,0A3h,0AEh, 20h,0AFh
+038F:0896  AE E0 E2 A0 20 A2			db	0AEh,0E0h,0E2h,0A0h, 20h,0A2h
+038F:089C  A2 AE A4 A0 2D A2			db	0A2h,0AEh,0A4h,0A0h, 2Dh,0A2h
+038F:08A2  EB A2 AE				db	0EBh,0A2h,0AEh
+
+038F:08A5			locloop_29:					;  xref 038F:08B8
+038F:08A5  A4					movsb				; Mov [si] to es:[di]
+038F:08A6  A0 5320				mov	al,byte ptr ds:[5320h]	; (038F:5320=6)
+038F:08A9  42					inc	dx
+038F:08AA  2C 20				sub	al,20h			; ' '
+038F:08AC  AD					lodsw				; String [si] to ax
+038F:08AD  A0 E0AF				mov	al,byte ptr ds:[0E0AFh]	; (038F:E0AF=11h)
+038F:08B0  A8 AC				test	al,0ACh
+038F:08B2  A5					movsw				; Mov [si] to es:[di]
+038F:08B3  E0 3A		;*		loopnz	locloop_30		;*Loop if zf=0, cx>0
+
+038F:08B3  E0 3A				db	0E0h, 3Ah
+038F:08B5  0D 0DEC				or	ax,0DECh
+038F:08B8  E0 EB				loopnz	locloop_29		; Loop if zf=0, cx>0
+
+038F:08BA  A5					movsw				; Mov [si] to es:[di]
+038F:08BB  0D 0000				or	ax,0
+038F:08BE  0032[00]				db	50 dup (0)
+038F:08F0  E9 4D 17 00 17 64			db	0E9h, 4Dh, 17h, 00h, 17h, 64h
+038F:08F6  FF FF 37 5E FF FF			db	0FFh,0FFh, 37h, 5Eh,0FFh,0FFh
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 8
+
+038F:08FC  F5 5C FF FF 24 61			db	0F5h, 5Ch,0FFh,0FFh, 24h, 61h
+038F:0902  FF FF E9 5C FF FF			db	0FFh,0FFh,0E9h, 5Ch,0FFh,0FFh
+038F:0908  63 5F FF FF 01 61			db	 63h, 5Fh,0FFh,0FFh, 01h, 61h
+038F:090E  FF FF 6E 5E FF FF			db	0FFh,0FFh, 6Eh, 5Eh,0FFh,0FFh
+038F:0914  5A 64 FF FF 82 5F			db	 5Ah, 64h,0FFh,0FFh, 82h, 5Fh
+038F:091A  FF FF D3 64 FF FF			db	0FFh,0FFh,0D3h, 64h,0FFh,0FFh
+038F:0920  AF 00 D9 02 01 FB			db	0AFh, 00h,0D9h, 02h, 01h,0FBh
+038F:0926  E8 64 00 1E 0E 2E			db	0E8h, 64h, 00h, 1Eh, 0Eh, 2Eh
+038F:092C  FF 2E 04 01 FB E8			db	0FFh, 2Eh, 04h, 01h,0FBh,0E8h
+038F:0932  59 00 1E 0E 2E FF			db	 59h, 00h, 1Eh, 0Eh, 2Eh,0FFh
+038F:0938  2E 08 01 FB E8 4E			db	 2Eh, 08h, 01h,0FBh,0E8h, 4Eh
+038F:093E  00 1E 0E 2E FF 2E			db	 00h, 1Eh, 0Eh, 2Eh,0FFh, 2Eh
+038F:0944  0C 01 FB E8 43 00			db	 0Ch, 01h,0FBh,0E8h, 43h, 00h
+038F:094A  1E 0E 2E FF 2E 10			db	 1Eh, 0Eh, 2Eh,0FFh, 2Eh, 10h
+038F:0950  01					db	 01h
+038F:0951			loc_31:						;  xref 038F:09F0
+038F:0951 úE8 0039				call	sub_8			; (098D)
+038F:0954  1E					push	ds
+038F:0955  0E					push	cs
+038F:0956  2E: FF 2E 0114			jmp	dword ptr cs:data_32	; (038F:0114=0Ch)
+							                        ;* No entry point to code
+038F:095B  E8 002F				call	sub_8			; (098D)
+038F:095E  1E					push	ds
+038F:095F  0E					push	cs
+038F:0960  2E: FF 2E 0118			jmp	cs:data_33		; (038F:0118=0)
+							                        ;* No entry point to code
+038F:0965  E8 0025				call	sub_8			; (098D)
+038F:0968  1E					push	ds
+038F:0969  0E					push	cs
+038F:096A  2E: FF 2E 011C			jmp	dword ptr cs:data_34	; (038F:011C=0C8E8h)
+038F:096F			loc_32:						;  xref 038F:0C25
+038F:096F úE8 001B				call	sub_8			; (098D)
+038F:0972  1E					push	ds
+038F:0973  0E					push	cs
+038F:0974  2E: FF 2E 0120			jmp	dword ptr cs:data_35	; (038F:0120=0EB01h)
+							                        ;* No entry point to code
+038F:0979  E8 0011				call	sub_8			; (098D)
+038F:097C  1E					push	ds
+038F:097D  0E					push	cs
+038F:097E  2E: FF 2E 0124			jmp	dword ptr cs:data_36	; (038F:0124=10EBh)
+							                        ;* No entry point to code
+038F:0983  E8 0007				call	sub_8			; (098D)
+038F:0986  1E					push	ds
+038F:0987  0E					push	cs
+038F:0988  2E: FF 2E 0128			jmp	dword ptr cs:data_37	; (038F:0128=20Ah)
+
+				;ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+				;                              SUBROUTINE
+				;
+				;         Called from:   038F:0951, 095B, 0965, 096F, 0979, 0983
+				;ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+
+				sub_8		proc	near
+038F:098D  9C					pushf				; Push flags
+038F:098E  50					push	ax
+038F:098F  2E: 80 3E 0134 00			cmp	cs:data_40,0		; (038F:0134=0)
+038F:0995  74 08				je	loc_33			; Jump if equal
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 9
+
+038F:0997  E8 000D				call	sub_9			; (09A7)
+038F:099A  73 03				jnc	loc_33			; Jump if carry=0
+038F:099C  E8 001B				call	sub_10			; (09BA)
+038F:099F			loc_33:						;  xref 038F:0995, 099A
+038F:099F  58					pop	ax
+038F:09A0  9D					popf				; Pop flags
+038F:09A1  C3					retn
+				sub_8		endp
+
+038F:09A2  EA 35 01 0E 04			db	0EAh, 35h, 01h, 0Eh, 04h
+
+				;ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+				;                              SUBROUTINE
+				;
+				;         Called from:   038F:0997
+				;ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+
+				sub_9		proc	near
+038F:09A7  53					push	bx
+038F:09A8  50					push	ax
+038F:09A9  B4 07				mov	ah,7
+038F:09AB  2E: FF 1E 0130			call	cs:data_39		; (038F:0130=0)
+038F:09B0  0B C0				or	ax,ax			; Zero ?
+038F:09B2  58					pop	ax
+038F:09B3  5B					pop	bx
+038F:09B4  75 02				jnz	loc_34			; Jump if not zero
+038F:09B6  F9					stc				; Set carry flag
+038F:09B7  C3					retn
+038F:09B8			loc_34:						;  xref 038F:09B4
+038F:09B8  F8					clc				; Clear carry flag
+038F:09B9  C3					retn
+				sub_9		endp
+
+
+				;ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+				;                              SUBROUTINE
+				;
+				;         Called from:   038F:099C
+				;ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+
+				sub_10		proc	near
+038F:09BA  53					push	bx
+038F:09BB  50					push	ax
+038F:09BC  B4 05				mov	ah,5
+038F:09BE  2E: FF 1E 0130			call	cs:data_39		; (038F:0130=0)
+038F:09C3  0B C0				or	ax,ax			; Zero ?
+038F:09C5  74 03				jz	loc_35			; Jump if zero
+038F:09C7  58					pop	ax
+038F:09C8  5B					pop	bx
+038F:09C9  C3					retn
+038F:09CA			loc_35:						;  xref 038F:09C5, 09CA
+038F:09CA  EB FE				jmp	short loc_35		; (09CA)
+				sub_10		endp
+
+							                        ;* No entry point to code
+038F:09CC  CD 21				int	21h			; ??INT Non-standard interrupt
+038F:09CE  FA					cli				; Disable interrupts
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 10
+
+038F:09CF  0E					push	cs
+038F:09D0  17					pop	ss
+038F:09D1  BC 0612				mov	sp,612h
+038F:09D4  FB					sti				; Enable interrupts
+038F:09D5  0E					push	cs
+038F:09D6  1F					pop	ds
+038F:09D7  9C					pushf				; Push flags
+038F:09D8  50					push	ax
+038F:09D9  2E: A0 0614				mov	al,cs:data_52		; (038F:0614=0)
+038F:09DD  A8 80				test	al,80h
+038F:09DF  74 07				jz	loc_36			; Jump if zero
+038F:09E1  24 7F				and	al,7Fh
+038F:09E3  2E: FF 1E 012C			call	dword ptr cs:data_38	; (038F:012C=0EB00h)
+038F:09E8			loc_36:						;  xref 038F:09DF
+038F:09E8  2E: 80 26 0614 7F			and	cs:data_52,7Fh		; (038F:0614=0)
+038F:09EE  58					pop	ax
+038F:09EF  9D					popf				; Pop flags
+038F:09F0  E9 FF5E				jmp	loc_31			; (0951)
+							                        ;* No entry point to code
+038F:09F3  02 00				add	al,[bx+si]
+038F:09F5  00 01				add	[bx+di],al
+038F:09F7  09 02				or	[bp+si],ax
+038F:09F9  41					inc	cx
+038F:09FA  02 00				add	al,[bx+si]
+038F:09FC  00 02				add	[bp+si],al
+038F:09FE  10 02				adc	[bp+si],al
+038F:0A00  0009[00]				db	9 dup (0)
+038F:0A09  02 22 02 03 30 02			db	 02h, 22h, 02h, 03h, 30h, 02h
+038F:0A0F  03 2E 02 00				db	 03h, 2Eh, 02h, 00h
+038F:0A13  0010[00]				db	16 dup (0)
+038F:0A23  01 09 02 02 5A 02			db	 01h, 09h, 02h, 02h, 5Ah, 02h
+038F:0A29  01 3C 02 43 02 7C			db	 01h, 3Ch, 02h, 43h, 02h, 7Ch
+038F:0A2F  04					db	 04h
+038F:0A30  000B[00]				db	11 dup (0)
+038F:0A3B  0E 04 7F 01 0E 04			db	 0Eh, 04h, 7Fh, 01h, 0Eh, 04h
+038F:0A41  00 00 00 00 00 00			db	 00h, 00h, 00h, 00h, 00h, 00h
+038F:0A47  00					db	 00h
+038F:0A48  43 3A 5C 57 49 4E			db	'C:\WINDOWS\SYSTEM32\COMMAND.COM'
+038F:0A4E  44 4F 57 53 5C 53
+038F:0A54  59 53 54 45 4D 33
+038F:0A5A  32 5C 43 4F 4D 4D
+038F:0A60  41 4E 44 2E 43 4F
+038F:0A66  4D
+038F:0A67  0021[00]				db	33 dup (0)
+038F:0A88  77 02 2C 01 B4 95			db	 77h, 02h, 2Ch, 01h,0B4h, 95h
+038F:0A8E  01 00 00 03 FF 9F			db	 01h, 00h, 00h, 03h,0FFh, 9Fh
+038F:0A94  EE 1E 01 00 03 00			db	0EEh, 1Eh, 01h, 00h, 03h, 00h
+038F:0A9A  01 00 01 01 01 00			db	 01h, 00h, 01h, 01h, 01h, 00h
+038F:0AA0  01 00 00 00 FF FF			db	 01h, 00h, 00h, 00h,0FFh,0FFh
+038F:0AA6  00					db	 00h
+038F:0AA7  000B[00]				db	11 dup (0)
+038F:0AB2  04 31 0B A7 00 00			db	 04h, 31h, 0Bh,0A7h, 00h, 00h
+038F:0AB8  00 00 00 E7 0C A7			db	 00h, 00h, 00h,0E7h, 0Ch,0A7h
+038F:0ABE  0058[00]				db	88 dup (0)
+038F:0B16  01 00 00 00 01 00			db	1, 0, 0, 0, 1, 0
+038F:0B1C  0007[00]				db	7 dup (0)
+038F:0B23  1E 06 0E 1F 8B 16			db	 1Eh, 06h, 0Eh, 1Fh, 8Bh, 16h
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 11
+
+038F:0B29  BD 22 A1 B1 22 8B			db	0BDh, 22h,0A1h,0B1h, 22h, 8Bh
+038F:0B2F  1E AD 22 8B 0E B3			db	 1Eh,0ADh, 22h, 8Bh, 0Eh,0B3h
+038F:0B35  22 50 53 51 8C DB			db	 22h, 50h, 53h, 51h, 8Ch,0DBh
+038F:0B3B  8E C3 8B 1E 93 05			db	 8Eh,0C3h, 8Bh, 1Eh, 93h, 05h
+038F:0B41  B4 4A CD 21 80 3E			db	0B4h, 4Ah,0CDh, 21h, 80h, 3Eh
+038F:0B47  B0 02 01 75 33 83			db	0B0h, 02h, 01h, 75h, 33h, 83h
+038F:0B4D  3E 56 02 00 74 2C			db	 3Eh, 56h, 02h, 00h, 74h, 2Ch
+038F:0B53  BB 07 00 B4 48 CD			db	0BBh, 07h, 00h,0B4h, 48h,0CDh
+038F:0B59  21 72 23 8E C0 33			db	 21h, 72h, 23h, 8Eh,0C0h, 33h
+038F:0B5F  FF 33 F6 1E 8E 1E			db	0FFh, 33h,0F6h, 1Eh, 8Eh, 1Eh
+038F:0B65  56 02 B9 21 00 83			db	 56h, 02h,0B9h, 21h, 00h, 83h
+038F:0B6B  C1 40 FC F3 A4 1F			db	0C1h, 40h,0FCh,0F3h,0A4h, 1Fh
+038F:0B71  8C C1 8E 06 56 02			db	 8Ch,0C1h, 8Eh, 06h, 56h, 02h
+038F:0B77  B4 49 CD 21 89 0E			db	0B4h, 49h,0CDh, 21h, 89h, 0Eh
+038F:0B7D  56 02 59 5B 5D B4			db	 56h, 02h, 59h, 5Bh, 5Dh,0B4h
+038F:0B83  48 CD 21 72 41 A3			db	 48h,0CDh, 21h, 72h, 41h,0A3h
+038F:0B89  58 04 A3 2C 00 8E			db	 58h, 04h,0A3h, 2Ch, 00h, 8Eh
+038F:0B8F  C0 80 3E B0 02 01			db	0C0h, 80h, 3Eh,0B0h, 02h, 01h
+038F:0B95  75 34 53 BB 00 00			db	 75h, 34h, 53h,0BBh, 00h, 00h
+038F:0B9B  C4 C4 54 0F 8B C3			db	0C4h,0C4h, 54h, 0Fh, 8Bh,0C3h
+038F:0BA1  5B 3D 00 00 74 24			db	 5Bh, 3Dh, 00h, 00h, 74h, 24h
+038F:0BA7  03 D8 B4 49 CD 21			db	 03h,0D8h,0B4h, 49h,0CDh, 21h
+038F:0BAD  B4 48 CD 21 72 75			db	0B4h, 48h,0CDh, 21h, 72h, 75h
+038F:0BB3  A3 58 04 A3 2C 00			db	0A3h, 58h, 04h,0A3h, 2Ch, 00h
+038F:0BB9  8E C0 89 1E AD 22			db	 8Eh,0C0h, 89h, 1Eh,0ADh, 22h
+038F:0BBF  53 C4 C4 54 0F 58			db	 53h,0C4h,0C4h, 54h, 0Fh, 58h
+038F:0BC5  3B D8				db	 3Bh,0D8h
+038F:0BC7  76 0D				db	 76h, 0Dh
+038F:0BC9			loc_37:
+038F:0BC9  EB 5D				jmp	short loc_40		; (0C28)
+038F:0BCB			loc_38:
+038F:0BCB  1E					push	ds
+038F:0BCC  8E DD				mov	ds,bp
+038F:0BCE  33 F6				xor	si,si			; Zero register
+038F:0BD0  8B FE				mov	di,si
+038F:0BD2  FC					cld				; Clear direction
+038F:0BD3  F3/ A4				rep	movsb			; Rep when cx >0 Mov [si] to es:[di]
+038F:0BD5  1F					pop	ds
+038F:0BD6  80 3E 228A 00			cmp	byte ptr ds:[228Ah],0	; (038F:228A=0)
+038F:0BDB  75 06				jne	loc_39			; Jump if not equal
+038F:0BDD  8E C5				mov	es,bp
+038F:0BDF  B4 49				mov	ah,49h
+038F:0BE1  CD 21				int	21h			; DOS Services  ah=function 49h
+										;  release memory block, es=seg
+038F:0BE3			loc_39:						;  xref 038F:0BDB
+038F:0BE3  C6 06 029E 01			mov	byte ptr ds:[29Eh],1	; (038F:029E=0E6h)
+038F:0BE8  06					push	es
+038F:0BE9  BE 2760				mov	si,2760h
+038F:0BEC  BF 0000				mov	di,0
+038F:0BEF  B9 A4AD				mov	cx,0A4ADh
+038F:0BF2  BB FFFF				mov	bx,0FFFFh
+038F:0BF5  B4 48				mov	ah,48h
+038F:0BF7  CD 21				int	21h			; DOS Services  ah=function 48h
+										;  allocate memory, bx=bytes/16
+038F:0BF9  3B DA				cmp	bx,dx
+038F:0BFB  72 2B				jb	loc_40			; Jump if below
+038F:0BFD  B4 48				mov	ah,48h
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 12
+
+038F:0BFF  CD 21				int	21h			; DOS Services  ah=function 48h
+										;  allocate memory, bx=bytes/16
+038F:0C01  72 25				jc	loc_40			; Jump if carry Set
+038F:0C03  50					push	ax
+038F:0C04  03 C3				add	ax,bx
+038F:0C06  2B C2				sub	ax,dx
+038F:0C08  A3 029C				mov	word ptr ds:[29Ch],ax	; (038F:029C=21E6h)
+038F:0C0B  8E C0				mov	es,ax
+038F:0C0D  58					pop	ax
+038F:0C0E  03 F1				add	si,cx
+038F:0C10  4E					dec	si
+038F:0C11  03 F9				add	di,cx
+038F:0C13  4F					dec	di
+038F:0C14  FD					std				; Set direction flag
+038F:0C15  F3/ A4				rep	movsb			; Rep when cx >0 Mov [si] to es:[di]
+038F:0C17  FC					cld				; Clear direction
+038F:0C18  8E C0				mov	es,ax
+038F:0C1A  B4 49				mov	ah,49h
+038F:0C1C  CD 21				int	21h			; DOS Services  ah=function 49h
+										;  release memory block, es=seg
+038F:0C1E  C6 06 0330 00			mov	data_46,0		; (038F:0330=0)
+038F:0C23  07					pop	es
+038F:0C24  1F					pop	ds
+038F:0C25  E9 FD47				jmp	loc_32			; (096F)
+038F:0C28			loc_40:						;  xref 038F:0BC9, 0BFB, 0C01
+038F:0C28  E9 1DC0				jmp	$+1DC3h
+038F:0C2B  0019[00]				db	25 dup (0)
+038F:0C44  33 03 82 03 CC 04			db	 33h, 03h, 82h, 03h,0CCh, 04h
+038F:0C4A  80 00 0E 04 5C 00			db	 80h, 00h, 0Eh, 04h, 5Ch, 00h
+038F:0C50  0E 04 6C 00 0E 04			db	 0Eh, 04h, 6Ch, 00h, 0Eh, 04h
+038F:0C56  93 01 0E 04 00 10			db	 93h, 01h, 0Eh, 04h, 00h, 10h
+038F:0C5C  2F 5C DC 01 0E 04			db	 2Fh, 5Ch,0DCh, 01h, 0Eh, 04h
+038F:0C62  6B 01 0E 04 00 00			db	 6Bh, 01h, 0Eh, 04h, 00h, 00h
+038F:0C68  C7 06 00 00				db	0C7h, 06h, 00h, 00h
+038F:0C6C  5C 5C 56 4D 57 41			db	'\\VMWARE-HOST\SHARED FOLDERS\'
+038F:0C72  52 45 2D 48 4F 53
+038F:0C78  54 5C 53 48 41 52
+038F:0C7E  45 44 20 46 4F 4C
+038F:0C84  44 45 52 53 5C
+038F:0C89  90 80 81 8E				db	 90h, 80h, 81h, 8Eh
+038F:0C8D  7E 31 31 36 5C 4F			db	'~116\OS\'
+038F:0C93  53 5C
+038F:0C95  8B 80 81				db	 8Bh, 80h, 81h
+038F:0C98  5F 7E 45 38 41 5C			db	'_~E8A\SR.EXE'
+038F:0C9E  53 52 2E 45 58 45
+038F:0CA4  00D9[00]				db	217 dup (0)
+038F:0D7D  66 00 D9 02 46 0B			db	 66h, 00h,0D9h, 02h, 46h, 0Bh
+038F:0D83  B5 00				db	0B5h, 00h
+038F:0D85  0042[00]				db	66 dup (0)
+038F:0DC7  63 0D 94 00 00 00			db	 63h, 0Dh, 94h, 00h, 00h, 00h
+038F:0DCD  00 E7 0C C5 22 0C			db	 00h,0E7h, 0Ch,0C5h, 22h, 0Ch
+038F:0DD3  94 EA 22 EA 22 10			db	 94h,0EAh, 22h,0EAh, 22h, 10h
+038F:0DD9  07 00 07 D9 02 01			db	 07h, 00h, 07h,0D9h, 02h, 01h
+038F:0DDF  00 D9 02 47 01 D9			db	 00h,0D9h, 02h, 47h, 01h,0D9h
+038F:0DE5  02 24 25 B4 95 00			db	 02h, 24h, 25h,0B4h, 95h, 00h
+038F:0DEB  3E FE 98 0E 04 00			db	 3Eh,0FEh, 98h, 0Eh, 04h, 00h
+038F:0DF1  00 00 01 00 01 81			db	 00h, 00h, 01h, 00h, 01h, 81h
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 13
+
+038F:0DF7  00 0E 04 0E 04 DE			db	 00h, 0Eh, 04h, 0Eh, 04h,0DEh
+038F:0DFD  01 0E 04 46 32 00			db	 01h, 0Eh, 04h, 46h, 32h, 00h
+038F:0E03  00 00				db	 00h, 00h
+038F:0E05  41 52 49 46 59 4E			db	'ARIFYN', 0Ch, 'Abort ('
+038F:0E0B  0C 41 62 6F 72 74
+038F:0E11  20 28
+038F:0E13  E1 E2 AE AF 29 10			db	0E1h,0E2h,0AEh,0AFh, 29h, 10h
+038F:0E19  2C 20 52 65 74 72			db	', Retry ('
+038F:0E1F  79 20 28
+038F:0E22  AF AE A2 E2 AE E0			db	0AFh,0AEh,0A2h,0E2h,0AEh,0E0h
+038F:0E28  29 12				db	 29h, 12h
+038F:0E2A  2C 20 49				db	 2Ch, 20h, 49h
+
+038F:0E2D			locloop_41:					;  xref 038F:0E86
+038F:0E2D  67 6E 6F 72 65 20			db	 67h, 6Eh, 6Fh, 72h, 65h, 20h
+038F:0E33  28 AF E0 AE AF E3			db	 28h,0AFh,0E0h,0AEh,0AFh,0E3h
+038F:0E39  E1 AA 29 0E				db	0E1h,0AAh, 29h, 0Eh
+
+038F:0E3D			locloop_42:					;  xref 038F:0E93
+038F:0E3D  2C 20				sub	al,20h			; ' '
+038F:0E3F  46					inc	si
+038F:0E40  61 69 6C 20 28 E1			db	 61h, 69h, 6Ch, 20h, 28h,0E1h
+038F:0E46  A1 E0				db	0A1h,0E0h
+
+038F:0E48			locloop_43:					;  xref 038F:0E5A
+038F:0E48  AE					scasb				; Scan es:[di] for al
+038F:0E49  E1 29				loopz	locloop_46		; Loop if zf=1, cx>0
+
+038F:0E4B  01 3F				add	[bx],di
+038F:0E4D  07					pop	es
+038F:0E4E  E7 E2				out	0E2h,ax			; port 0E2h ??I/O Non-standard
+038F:0E50  A5					movsw				; Mov [si] to es:[di]
+038F:0E51  AD					lodsw				; String [si] to ax
+038F:0E52  A8 A5				test	al,0A5h
+
+038F:0E54			locloop_45:					;  xref 038F:0E72
+038F:0E54  00 07				add	[bx],al
+038F:0E56  A7					cmpsw				; Cmp [si] to es:[di]
+038F:0E57  A0 A8AF				mov	al,byte ptr ds:[0A8AFh]	; (0000:A8AF=16h)
+038F:0E5A  E1 EC				loopz	locloop_43		; Loop if zf=1, cx>0
+
+038F:0E5C  00 0D				add	[di],cl
+038F:0E5E  20 25				and	[di],ah
+038F:0E60  31 20				xor	[bx+si],sp
+038F:0E62  A4					movsb				; Mov [si] to es:[di]
+038F:0E63  A8 E1				test	al,0E1h
+038F:0E65  AA					stosb				; Store al to es:[di]
+038F:0E66  20 25				and	[di],ah
+038F:0E68  32 0D				xor	cl,[di]
+038F:0E6A  0A 13				or	dl,[bp+di]
+038F:0E6C  20 25				and	[di],ah
+038F:0E6E  31 20				xor	[bx+si],sp
+038F:0E70  E3 E1		;*		jcxz	loc_44			;*Jump if cx=0
+038F:0E70  E3 E1				db	0E3h,0E1h
+038F:0E72  E2 E0				loop	locloop_45		; Loop if cx > 0
+
+
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 14
+
+038F:0E74			locloop_46:					;  xref 038F:0E49
+038F:0E74  AE					scasb				; Scan es:[di] for al
+038F:0E75  A9 E2E1				test	ax,0E2E1h
+038F:0E78  A2 20AE				mov	byte ptr ds:[20AEh],al	; (0000:20AE=2Bh)
+038F:0E7B  25 0D32				and	ax,0D32h
+038F:0E7E  0A 27				or	ah,[bx]
+038F:0E80  82 E1 E2				and	cl,0E2h
+038F:0E83  A0 ECA2				mov	al,byte ptr ds:[0ECA2h]	; (0000:ECA2=0EBh)
+038F:0E86  E2 A5				loop	locloop_41		; Loop if cx > 0
+
+038F:0E88  20 E2				and	dl,ah
+038F:0E8A  AE					scasb				; Scan es:[di] for al
+038F:0E8B  AC					lodsb				; String [si] to al
+038F:0E8C  20 25				and	[di],ah
+038F:0E8E  31 2C				xor	[si],bp
+038F:0E90  20 E1				and	cl,ah
+038F:0E92  A5					movsw				; Mov [si] to es:[di]
+038F:0E93  E0 A8				loopnz	locloop_42		; Loop if zf=0, cx>0
+
+
+038F:0E95			locloop_47:					;  xref 038F:0EAC, 0EEA
+038F:0E95 úA9 EBAD				test	ax,0EBADh
+038F:0E98  A9 AD20				test	ax,0AD20h
+038F:0E9B  AE					scasb				; Scan es:[di] for al
+038F:0E9C  AC					lodsb				; String [si] to al
+038F:0E9D  A5					movsw				; Mov [si] to es:[di]
+038F:0E9E  E0 20		;*		loopnz	locloop_48		;*Loop if zf=0, cx>0
+
+038F:0E9E  E0 20				db	0E0h, 20h
+038F:0EA0  25 2D32				and	ax,2D32h
+038F:0EA3  25 0D33				and	ax,0D33h
+038F:0EA6  0A 37				or	dh,[bx]
+038F:0EA8  88 E1				mov	cl,ah
+038F:0EAA  AF					scasw				; Scan es:[di] for ax
+038F:0EAB  AE					scasb				; Scan es:[di] for al
+038F:0EAC  E0 E7				loopnz	locloop_47		; Loop if zf=0, cx>0
+
+038F:0EAE  A5					movsw				; Mov [si] to es:[di]
+038F:0EAF  AD					lodsw				; String [si] to ax
+038F:0EB0  A0 E220				mov	al,byte ptr ds:[0E220h]	; (0000:E220=36h)
+038F:0EB3  A0 ABA1				mov	al,byte ptr ds:[0ABA1h]	; (0000:ABA1=8Eh)
+038F:0EB6  A8 E6				test	al,0E6h
+038F:0EB8  A0 E020				mov	al,byte ptr ds:[0E020h]	; (0000:E020=0)
+038F:0EBB  A0 ACA7				mov	al,byte ptr ds:[0ACA7h]	; (0000:ACA7=88h)
+038F:0EBE  A5					movsw				; Mov [si] to es:[di]
+038F:0EBF  E9 ADA5				jmp	$-5258h
+							                        ;* No entry point to code
+038F:0EC2  A8 EF				test	al,0EFh
+038F:0EC4  20 E4				and	ah,ah
+038F:0EC6  A0 ABA9				mov	al,byte ptr ds:[0ABA9h]	; (0000:ABA9=74h)
+038F:0EC9  AE					scasb				; Scan es:[di] for al
+038F:0ECA  A2 2820				mov	byte ptr ds:[2820h],al	; (0000:2820=0)
+038F:0ECD  46					inc	si
+038F:0ECE  41					inc	cx
+038F:0ECF  54					push	sp
+038F:0ED0  29 20				sub	[bx+si],sp
+038F:0ED2  AD					lodsw				; String [si] to ax
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 15
+
+038F:0ED3  A0 A420				mov	al,byte ptr ds:[0A420h]	; (0000:A420=0F6h)
+038F:0ED6  A8 E1				test	al,0E1h
+038F:0ED8  AA					stosb				; Store al to es:[di]
+038F:0ED9  A5					movsw				; Mov [si] to es:[di]
+038F:0EDA  20 25				and	[di],ah
+038F:0EDC  31 0D				xor	[di],cx
+038F:0EDE  0A 1A				or	bl,[bp+si]
+038F:0EE0  8D A5 E0AF				lea	sp,cs:[0E0AFh][di]	; Load effective addr
+038F:0EE4  A0 A8A2				mov	al,byte ptr ds:[0A8A2h]	; (0000:A8A2=74h)
+038F:0EE7  AB					stosw				; Store ax to es:[di]
+038F:0EE8  EC					in	al,dx			; port 404h ??I/O Non-standard
+038F:0EE9  AD					lodsw				; String [si] to ax
+038F:0EEA  EB A9				jmp	short locloop_47	; (0E95)
+038F:0EEC  20 43 4F 4D 4D 41			db	' COMMAND.COM', 0Dh, 0Ah, '"'
+038F:0EF2  4E 44 2E 43 4F 4D
+038F:0EF8  0D 0A 22
+038F:0EFB  82 E1 E2 A0 A2 EC			db	 82h,0E1h,0E2h,0A0h,0A2h,0ECh
+038F:0F01  E2 A5				db	0E2h,0A5h
+038F:0F03  20					db	20h
+
+038F:0F04			locloop_49:
+038F:0F04  A4					movsb				; Mov [si] to es:[di]
+038F:0F05  A8 E1				test	al,0E1h
+038F:0F07  AA					stosb				; Store al to es:[di]
+038F:0F08  20 E1				and	cl,ah
+038F:0F0A  20 25				and	[di],ah
+038F:0F0C  31 20				xor	[bx+si],sp
+038F:0F0E  A2 A420				mov	byte ptr ds:[0A420h],al	; (0000:A420=0F6h)
+038F:0F11  A8 E1				test	al,0E1h
+038F:0F13  AA					stosb				; Store al to es:[di]
+038F:0F14  AE					scasb				; Scan es:[di] for al
+038F:0F15  A2 A4AE				mov	byte ptr ds:[0A4AEh],al	; (0000:A4AE=6)
+038F:0F18  20 25				and	[di],ah
+038F:0F1A  32 0D				xor	cl,[di]
+038F:0F1C			loc_51:						;  xref 038F:0F76
+038F:0F1C  0A 1A				or	bl,[bp+si]
+038F:0F1E  8D A0 ACA6				lea	sp,cs:[0ACA6h][bx+si]	; Load effective addr
+038F:0F22  A8 E2				test	al,0E2h
+038F:0F24  A5					movsw				; Mov [si] to es:[di]
+038F:0F25  20 AB A1EE				and	[bp+di-5E12h],ch
+038F:0F29  E3 EE		;*		jcxz	loc_50			;*Jump if cx=0
+038F:0F29  E3 EE				db	0E3h,0EEh
+038F:0F2B  20 AA A0AB				and	[bp+si-5F55h],ch
+038F:0F2F  A2 E8A8				mov	byte ptr ds:[0E8A8h],al	; (0000:E8A8=74h)
+038F:0F32  E3 2E				jcxz	loc_52			; Jump if cx=0
+038F:0F34  2E 2E 0D 0A 39 0D			db	 2Eh, 2Eh, 0Dh, 0Ah, 39h, 0Dh
+038F:0F3A  0A 8F E0 A5 AA E0			db	 0Ah, 8Fh,0E0h,0A5h,0AAh,0E0h
+038F:0F40  A0 E2 A8 E2 EC 20			db	0A0h,0E2h,0A8h,0E2h,0ECh, 20h
+038F:0F46  A2 EB AF AE AB AD			db	0A2h,0EBh,0AFh,0AEh,0ABh,0ADh
+038F:0F4C  A5 AD A8 A5 20 AF			db	0A5h,0ADh,0A8h,0A5h, 20h,0AFh
+038F:0F52  A0 AA A5 E2 AD AE			db	0A0h,0AAh,0A5h,0E2h,0ADh,0AEh
+038F:0F58  A3 AE 20 A7 A0 A4			db	0A3h,0AEh, 20h,0A7h,0A0h,0A4h
+038F:0F5E  A0 AD A8 EF				db	0A0h,0ADh,0A8h,0EFh
+038F:0F62			loc_52:						;  xref 038F:0F32
+038F:0F62  20 5B 59				and	[bp+di+59h],bl
+038F:0F65  28 A4 29A0				sub	byte ptr ds:[29A0h][si],ah	; (0000:29A0=7Fh)
+
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 16
+
+038F:0F69			locloop_53:					;  xref 038F:0FBF
+038F:0F69  2F					das				; Decimal adjust
+038F:0F6A  4E					dec	si
+038F:0F6B  28 AD E2A5				sub	byte ptr ds:[0E2A5h][di],ch	; (0000:E2A5=0E8h)
+038F:0F6F  29 5D 3F				sub	[di+3Fh],bx
+038F:0F72  19 8D 20A5				sbb	word ptr ds:[20A5h][di],cx	; (0000:20A5=308h)
+038F:0F76  E3 A4				jcxz	loc_51			; Jump if cx=0
+038F:0F78  A0 E2A5				mov	al,byte ptr ds:[0E2A5h]	; (0000:E2A5=0E8h)
+038F:0F7B  E1 EF		;*		loopz	locloop_54		;*Loop if zf=1, cx>0
+
+038F:0F7B  E1 EF				db	0E1h,0EFh
+038F:0F7D  20 A2 AFEB				and	[bp+si-5015h],ah
+038F:0F81  AE					scasb				; Scan es:[di] for al
+
+038F:0F82			locloop_56:					;  xref 038F:0FD8
+038F:0F82  AB					stosw				; Store ax to es:[di]
+038F:0F83  AD					lodsw				; String [si] to ax
+038F:0F84  A8 E2				test	al,0E2h
+038F:0F86  EC					in	al,dx			; port 404h ??I/O Non-standard
+038F:0F87  20 25				and	[di],ah
+038F:0F89  31 0D				xor	[di],cx
+
+038F:0F8B			locloop_57:					;  xref 038F:0FDB
+038F:0F8B  0A 14				or	dl,[si]
+
+038F:0F8D			locloop_58:					;  xref 038F:0FDD, 0FEB
+038F:0F8D  8E E8 A8 A1 AA A0			db	 8Eh,0E8h,0A8h,0A1h,0AAh,0A0h
+038F:0F93  20 A2 20 45 58 45			db	 20h,0A2h, 20h, 45h, 58h, 45h
+038F:0F99  2D E4 A0 A9 AB A5			db	 2Dh,0E4h,0A0h,0A9h,0ABh,0A5h
+038F:0F9F  0D 0A 21 8F E0 AE			db	 0Dh, 0Ah, 21h, 8Fh,0E0h,0AEh
+038F:0FA5  A3 E0 A0 AC AC A0			db	0A3h,0E0h,0A0h,0ACh,0ACh,0A0h
+038F:0FAB  20 AD A5 20 E3 AC			db	 20h,0ADh,0A5h, 20h,0E3h,0ACh
+038F:0FB1  A5 E9 A0 A5 E2 E1			db	0A5h,0E9h,0A0h,0A5h,0E2h,0E1h
+038F:0FB7  EF					db	0EFh
+038F:0FB8			loc_59:						;  xref 038F:0FD1
+038F:0FB8 ú20 A2 AF20				and	[bp+si-50E0h],ah
+038F:0FBC  A0 EFAC				mov	al,byte ptr ds:[0EFACh]	; (0000:EFAC=0Ah)
+038F:0FBF  E2 A8				loop	locloop_53		; Loop if cx > 0
+
+038F:0FC1  0D 230A				or	ax,230Ah
+038F:0FC4  0D 8D0A				or	ax,8D0Ah
+038F:0FC7  A5					movsw				; Mov [si] to es:[di]
+038F:0FC8  E2 20				loop	locloop_60		; Loop if cx > 0
+
+038F:0FCA  E1 A2		;*		loopz	locloop_55		;*Loop if zf=1, cx>0
+
+038F:0FCA  E1 A2				db	0E1h,0A2h
+038F:0FCC  AE					scasb				; Scan es:[di] for al
+038F:0FCD  A1 A4AE				mov	ax,word ptr ds:[0A4AEh]	; (0000:A4AE=9606h)
+038F:0FD0  AD					lodsw				; String [si] to ax
+038F:0FD1  EB E5				jmp	short loc_59		; (0FB8)
+							                        ;* No entry point to code
+038F:0FD3  20 A4 E1A5				and	byte ptr ds:[0E1A5h][si],ah	; (0000:E1A5=0FFh)
+038F:0FD7  AA					stosb				; Store al to es:[di]
+038F:0FD8  E0 A8				loopnz	locloop_56		; Loop if zf=0, cx>0
+
+038F:0FDA  AF					scasw				; Scan es:[di] for ax
+           out.lst				Sourcer	v5.10   15-Sep-20   8:19 pm   Page 17
+
+038F:0FDB  E2 AE				loop	locloop_57		; Loop if cx > 0
+
+038F:0FDD  E0 AE				loopnz	locloop_58		; Loop if zf=0, cx>0
+
+038F:0FDF  A2 E420				mov	byte ptr ds:[0E420h],al	; (0000:E420=3Fh)
+038F:0FE2  A0 ABA9				mov	al,byte ptr ds:[0ABA9h]	; (0000:ABA9=74h)
+038F:0FE5  AE					scasb				; Scan es:[di] for al
+038F:0FE6  A2 AD24				mov	byte ptr ds:[0AD24h],al	; (0000:AD24=33h)
+038F:0FE9  A5					movsw				; Mov [si] to es:[di]
+
+038F:0FEA			locloop_60:					;  xref 038F:0FC8
+038F:0FEA  AF					scasw				; Scan es:[di] for ax
+038F:0FEB  E0 A0				loopnz	locloop_58		; Loop if zf=0, cx>0
+
+038F:0FED  A2 ABA8				mov	byte ptr ds:[0ABA8h],al	; (0000:ABA8=0E4h)
+038F:0FF0  EC					in	al,dx			; port 4CFh ??I/O Non-standard
+038F:0FF1  AD					lodsw				; String [si] to ax
+038F:0FF2  A0 20EF				mov	al,byte ptr ds:[20EFh]	; (0000:20EF=81h)
+038F:0FF5  AA					stosb				; Store al to es:[di]
+038F:0FF6  AE					scasb				; Scan es:[di] for al
+038F:0FF7  AC					lodsb				; String [si] to al
+038F:0FF8  A0 A4AD				mov	al,byte ptr ds:[0A4ADh]	; (0000:A4AD=8Fh)
+038F:0FFB  A0 A820				mov	al,byte ptr ds:[0A820h]	; (0000:A820=80h)
+038F:0FFE  AB					stosw				; Store ax to es:[di]
+038F:0FFF  A8 20				test	al,20h			; ' '
+
+				seg_a		ends
+
+
+
+						end
+
+				 ±±±±±±±±±±±±±±±±±± Interrupt Usage Synopsis ±±±±±±±±±±±±±±±±±±
+
+				        Interrupt 10h : Video display	ah=functn xxh
+				        Interrupt 10h :  ah=0Eh	 write char al, teletype mode
+				        Interrupt 21h : DOS Services  ah=function xxh
+				        Interrupt 21h :  ah=48h	 allocate memory, bx=bytes/16
+				        Interrupt 21h :  ah=49h	 release memory block, es=seg
+				            1 Ocurrences of non-standard interrupts used (search for ??).
+
+				 ±±±±±±±±±±±±±±±±±± I/O Port Usage Synopsis  ±±±±±±±±±±±±±±±±±±
+
+				        Port 21h   : 8259-1 int	comands
+				        Port 0A1h  :  al = 0FFh, inhibit interrupts
+				            4 Ocurrences of non-standard I/O ports used (search for ??).
+
