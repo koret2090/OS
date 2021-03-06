@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.26)  14 DEC 2020 19:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.26)  22 DEC 2020 18:00
 entering extended mode
-**./Lab4.tex
-(Lab4.tex
+**./Lab1.tex
+(Lab1.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-09-03>
 (C:\Users\User\AppData\Roaming\MiKTeX\tex/latex/extsizes\extarticle.cls
@@ -460,9 +460,9 @@ Package tocbasic Info: setting babel extension for `nls' on input line 180.
 \nomitemsep=\skip55
 )
 \@nomenclaturefile=\write3
-\openout3 = `Lab4.nlo'.
+\openout3 = `Lab1.nlo'.
 
-Package nomencl Info: Writing nomenclature file Lab4.nlo on input line 33.
+Package nomencl Info: Writing nomenclature file Lab1.nlo on input line 33.
 ("D:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
@@ -2218,8 +2218,8 @@ b (3.1.5b)
 ydatavisualization.formats.functions.code.tex"
 File: pgflibrarydatavisualization.formats.functions.code.tex 2020/01/08 v3.1.5b
  (3.1.5b)
-)) (Lab4.aux)
-\openout1 = `Lab4.aux'.
+)) (Lab1.aux)
+\openout1 = `Lab1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
@@ -2386,9 +2386,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 49.
 LaTeX Info: Redefining \pageref on input line 49.
 LaTeX Info: Redefining \nameref on input line 49.
- (Lab4.out) (Lab4.out)
+ (Lab1.out) (Lab1.out)
 \@outlinefile=\write5
-\openout5 = `Lab4.out'.
+\openout5 = `Lab1.out'.
 
 \c@mv@tabular=\count357
 \c@mv@boldtabular=\count358
@@ -2411,7 +2411,7 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 49
 (C:\Users\User\AppData\Roaming\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<baum.jpg, id=26, 57.816pt x 65.3715pt>
+<baum.jpg, id=34, 57.816pt x 65.3715pt>
 File: baum.jpg Graphic file (type jpg)
 <use baum.jpg>
 Package pdftex.def Info: baum.jpg  used on input line 55.
@@ -2446,155 +2446,163 @@ LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T2A/Tempora-TLF/b/n' will be
 (Font)              scaled to size 17.28pt on input line 81.
 
-Overfull \hbox (95.14359pt too wide) in paragraph at lines 80--83
+Overfull \hbox (95.14359pt too wide) in paragraph at lines 80--84
 [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--83
-
+Overfull \hbox (71.13187pt too wide) in paragraph at lines 80--84
+[][][] 
  []
 
 
-Overfull \hbox (116.86453pt too wide) in paragraph at lines 84--87
+Overfull \hbox (116.86453pt too wide) in paragraph at lines 85--88
 [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--87
+Underfull \hbox (badness 10000) in paragraph at lines 85--88
 
  []
 
 
-Overfull \hbox (5.3967pt too wide) in paragraph at lines 96--101
+Overfull \hbox (5.3967pt too wide) in paragraph at lines 97--102
 [] 
  []
 
 LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/it' will be
-(Font)              scaled to size 17.28pt on input line 105.
+(Font)              scaled to size 17.28pt on input line 106.
 [1
 
 {C:/Users/User/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./baum.jpg>]
 LaTeX Font Info:    Font shape `T2A/Tempora-TLF/b/n' will be
-(Font)              scaled to size 14.0pt on input line 113.
+(Font)              scaled to size 14.0pt on input line 114.
 LaTeX Font Info:    Trying to load font information for T2B+Tempora-TLF on inpu
-t line 113.
+t line 114.
 
 (C:\Users\User\AppData\Roaming\MiKTeX\tex/latex/tempora\t2btempora-tlf.fd
 File: t2btempora-tlf.fd 2015/09/13 Font definitions for T2B/Tempora-TLF.
 )
 LaTeX Font Info:    Font shape `T2B/Tempora-TLF/b/n' will be
-(Font)              scaled to size 14.0pt on input line 113.
+(Font)              scaled to size 14.0pt on input line 114.
 
-(Lab4.toc
+(Lab1.toc
 LaTeX Font Info:    Font shape `T2B/Tempora-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 LaTeX Font Info:    Font shape `T2B/Tempora-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 2.
 )
 \tf@toc=\write6
-\openout6 = `Lab4.toc'.
+\openout6 = `Lab1.toc'.
 
  [2
 
-]
-LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 124.
-LaTeX Font Info:    Trying to load font information for T2A+cmss on input line 
-124.
+] [3
 
-(C:\Users\User\AppData\Roaming\MiKTeX\tex/latex/cyrillic\t2acmss.fd
-File: t2acmss.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
-LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 125.
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-129.
+] [4
 
-("D:\Program Files\MiKTeX\tex/latex/base\ts1cmss.fd"
-File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [3
+] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 233--233
+[]|\T2A/Tempora-TLF/m/n/14.4 Real-
+ []
 
-] [4]
-<source/1.jpg, id=105, 240.29774pt x 526.96875pt>
-File: source/1.jpg Graphic file (type jpg)
-<use source/1.jpg>
-Package pdftex.def Info: source/1.jpg  used on input line 179.
-(pdftex.def)             Requested size: 240.29715pt x 526.96745pt.
- [5
 
- <./source/1.jpg>] [6
+Underfull \hbox (badness 10000) in paragraph at lines 233--233
+[]|\T2A/Tempora-TLF/m/n/14.4 Above-
+ []
 
-] [7] [8]
-<source/2.jpg, id=189, 213.79875pt x 590.80725pt>
-File: source/2.jpg Graphic file (type jpg)
-<use source/2.jpg>
-Package pdftex.def Info: source/2.jpg  used on input line 263.
-(pdftex.def)             Requested size: 213.79822pt x 590.8058pt.
- [9
 
- <./source/2.jpg>] [10
+Underfull \hbox (badness 10000) in paragraph at lines 233--233
+[]|\T2A/Tempora-TLF/m/n/14.4 Below-
+ []
 
-] [11]
-<source/3.jpg, id=262, 279.444pt x 283.65974pt>
-File: source/3.jpg Graphic file (type jpg)
-<use source/3.jpg>
-Package pdftex.def Info: source/3.jpg  used on input line 345.
-(pdftex.def)             Requested size: 279.44331pt x 283.65904pt.
- [12 <./source/3.jpg>] [13
+[6] [7]
+Overfull \hbox (22.41946pt too wide) in paragraph at lines 294--302
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8
 
 ]
-[14]
-<source/4.jpg, id=343, 233.673pt x 99.37125pt>
-File: source/4.jpg Graphic file (type jpg)
-<use source/4.jpg>
-Package pdftex.def Info: source/4.jpg  used on input line 427.
-(pdftex.def)             Requested size: 233.67242pt x 99.371pt.
- [15 <./source/4.jpg>] [16
+Overfull \hbox (17.52135pt too wide) in paragraph at lines 318--326
+[]\T2A/Tempora-TLF/m/n/14.4 Когда по-ток пы-та-ет-ся по-лу-чить ре-сурс ис-пол-
+ня-ю-щей си-сте-мы (ERESOURCE;
+ []
 
-] [17] [18]
-<source/5.jpg, id=452, 235.47975pt x 145.7445pt>
-File: source/5.jpg Graphic file (type jpg)
-<use source/5.jpg>
-Package pdftex.def Info: source/5.jpg  used on input line 530.
-(pdftex.def)             Requested size: 235.47917pt x 145.74414pt.
-<source/6.jpg, id=453, 234.8775pt x 122.25674pt>
-File: source/6.jpg Graphic file (type jpg)
-<use source/6.jpg>
-Package pdftex.def Info: source/6.jpg  used on input line 537.
-(pdftex.def)             Requested size: 234.87692pt x 122.25644pt.
- [19
 
- <./source/5.jpg> <./source/6.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 540.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 540.
- (Lab4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 540.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 540.
-Package rerunfilecheck Info: File `Lab4.out' has not changed.
-(rerunfilecheck)             Checksum: 5A9949F67B61AC9196BFF2F9A3164A4A;594.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 540.
+Underfull \hbox (badness 10000) in paragraph at lines 331--339
+
+ []
+
+[9]
+<source/arhitektura-86.png, id=88, 316.18124pt x 256.5585pt>
+File: source/arhitektura-86.png Graphic file (type png)
+<use source/arhitektura-86.png>
+Package pdftex.def Info: source/arhitektura-86.png  used on input line 359.
+(pdftex.def)             Requested size: 316.18047pt x 256.55788pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10] [11 <./source/arhitektura-86.png>] [12]
+Overfull \hbox (0.99515pt too wide) in paragraph at lines 406--406
+[]|\T2A/Tempora-TLF/m/n/14.4 Приоритет
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
+\T2A/Tempora-TLF/m/n/14.4 4.3BSD
+ []
+
+
+Overfull \hbox (0.99515pt too wide) in paragraph at lines 406--407
+[]|\T2A/Tempora-TLF/m/n/14.4 Приоритет
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+\T2A/Tempora-TLF/m/n/14.4 SCO
+ []
+
+[13
+
+]
+LaTeX Font Info:    Font shape `T2A/Tempora-TLF/m/n' will be
+(Font)              scaled to size 7.0pt on input line 449.
+ [14] [15
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 477.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 477.
+ (Lab1.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 477.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 477.
+Package rerunfilecheck Info: File `Lab1.out' has not changed.
+(rerunfilecheck)             Checksum: 5C472C6D1A78CAB6D170EF08213AA5AC;1255.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 477.
  ) 
 Here is how much of TeX's memory you used:
- 46566 strings out of 481199
- 1048984 string characters out of 2915352
- 1612451 words of memory out of 3000000
- 60994 multiletter control sequences out of 15000+200000
- 585145 words of font info for 100 fonts, out of 3000000 for 9000
+ 45687 strings out of 481199
+ 1038016 string characters out of 2915352
+ 1503451 words of memory out of 3000000
+ 60461 multiletter control sequences out of 15000+200000
+ 581005 words of font info for 96 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 81i,19n,120p,939b,2417s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1
-200.pk> <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\la
-sx1200.pk> <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600
-\lass1200.pk>{C:/Users/User/AppData/Roaming/MiKTeX/fonts/enc/dvips/tempora/t2b-
-tempora.enc}{C:/Users/User/AppData/Roaming/MiKTeX/fonts/enc/dvips/tempora/t2a-t
-empora.enc}<C:/Users/User/AppData/Roaming/MiKTeX/fonts/type1/public/tempora/Tem
-pora-Bold.pfb><C:/Users/User/AppData/Roaming/MiKTeX/fonts/type1/public/tempora/
-Tempora-Italic.pfb><C:/Users/User/AppData/Roaming/MiKTeX/fonts/type1/public/tem
-pora/Tempora-Regular.pfb>
-Output written on Lab4.pdf (19 pages, 443317 bytes).
+ 81i,19n,120p,746b,834s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/User/AppData/Roaming/MiKTeX/fonts/enc/dvips/tempora/t2b-tempora.enc
+}{C:/Users/User/AppData/Roaming/MiKTeX/fonts/enc/dvips/tempora/t2a-tempora.enc}
+<C:/Users/User/AppData/Roaming/MiKTeX/fonts/type1/public/tempora/Tempora-Bold.p
+fb><C:/Users/User/AppData/Roaming/MiKTeX/fonts/type1/public/tempora/Tempora-Ita
+lic.pfb><C:/Users/User/AppData/Roaming/MiKTeX/fonts/type1/public/tempora/Tempor
+a-Regular.pfb><D:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pf
+b><D:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program
+ Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Lab1.pdf (15 pages, 185794 bytes).
 PDF statistics:
- 648 PDF objects out of 1000 (max. 8388607)
- 361 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 154 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 79 words of extra memory for PDF output out of 10000 (max. 10000000)
 

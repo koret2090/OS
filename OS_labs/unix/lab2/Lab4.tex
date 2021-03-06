@@ -354,74 +354,71 @@
 	 Программа показана в Листинге 4.\par
 	 Листинг 4 - Программа 4.
 	 \begin{lstlisting}		
-	 	#include <stdio.h>
-	 	#include <stdlib.h>
-	 	#include <unistd.h>
-	 	#include <sys/types.h>
-	 	#include <sys/wait.h>
-	 	
-	 	pid_t fork_child(int child_num, int *fd)
-	 	{
-	 		pid_t child = fork();
-	 		if (child == -1)
-	 		{
-	 			perror("fork error");
-	 			exit(1);
-	 		}
-	 		else if (child == 0)
-	 		{
-	 			int pid_int = getpid();
-	 			void* pid = &pid_int;
-	 			close(fd[0]);
-	 			write(fd[1], pid, sizeof(pid));
-	 			exit(0);
-	 		}
-	 		return child;
-	 	}
-	 	
-	 	void wait_for_child(int *fd)
-	 	{
-	 		int stat_val;
-	 		void* pid = malloc(sizeof(void*));
-	 		
-	 		close(fd[1]);
-	 		read(fd[0], pid, sizeof(pid));
-	 		
-	 		pid_t child = wait(&stat_val);
-	 		printf("Child %d send %d\n", child, *(int*)pid);
-	 		if (WIFEXITED(stat_val))
-	 		printf("Child %d completed normally with code %d\n", child, WEXITSTATUS(stat_val));
-	 		else if (WIFSIGNALED(stat_val))
-	 		printf("Child %d ended with a non-intercepted signal with code %d\n", child, WTERMSIG(stat_val));
-	 		else if (WIFSTOPPED(stat_val))
-	 		printf("Child %d stopped with code %d\n", child, WSTOPSIG(stat_val));
-	 		
-	 		free(pid);
-	 	}
-	 	
-	 	int main()
-	 	{
-	 		int fd[2];
-	 		if (pipe(fd) == -1)
-	 		{
-	 			perror("pipe error");
-	 			exit(1);
-	 		}
-	 		
-	 		pid_t child_1 = fork_child(1, fd);
-	 		pid_t child_2 = fork_child(2, fd);
-	 		
-	 		printf("\nparent:\n\
-	 		pid = %d\n\
-	 		group = %d\n\
-	 		child_1 = %d\n\
-	 		child_2 = %d\n", getpid(), getpgrp(), child_1, child_2);
-	 		
-	 		wait_for_child(fd);
-	 		wait_for_child(fd);
-	 		
-	 		return 0;
-	 	}
+		 #include <stdio.h>
+		 #include <stdlib.h>
+		 #include <unistd.h>
+		 #include <sys/types.h>
+		 #include <sys/wait.h>
+		 #include <string.h>
+		 
+		 pid_t fork_child(int child_num, int *fd, char* msg)
+		 {
+		 	pid_t child = fork();
+		 	if (child == -1)
+		 	{
+		 		perror("fork error");
+		 		exit(1);
+		 	}
+		 	else if (child == 0)
+		 	{
+		 		close(fd[0]);
+		 		write(fd[1], msg, sizeof(char) * (strlen(msg) + 1));
+		 		exit(0);
+		 	}
+		 	return child;
+		 }
+		 
+		 void wait_for_child(int *fd)
+		 {
+		 	int stat_val;
+		 	char msg[128];
+		 	
+		 	close(fd[1]);
+		 	read(fd[0], msg, sizeof(msg));
+		 	
+		 	pid_t child = wait(&stat_val);
+		 	printf("Child %d send %s\n", child, msg);
+		 	if (WIFEXITED(stat_val))
+		 	printf("Child %d completed normally with code %d\n", child, WEXITSTATUS(stat_val));
+		 	else if (WIFSIGNALED(stat_val))
+		 	printf("Child %d ended with a non-intercepted signal with code %d\n", child, WTERMSIG(stat_val));
+		 	else if (WIFSTOPPED(stat_val))
+		 	printf("Child %d stopped with code %d\n", child, WSTOPSIG(stat_val));
+		 }
+		 
+		 int main()
+		 {
+		 	int fd[2];
+		 	if (pipe(fd) == -1)
+		 	{
+		 		perror("pipe error");
+		 		exit(1);
+		 	}
+		 	
+		 	pid_t child_1 = fork_child(1, fd, "str 1\0");
+		 	pid_t child_2 = fork_child(2, fd, "unique string 2\0");
+		 	
+		 	printf("\nparent:\n\
+		 	pid = %d\n\
+		 	group = %d\n\
+		 	child_1 = %d\n\
+		 	child_2 = %d\n", getpid(), getpgrp(), child_1, child_2);
+		 	
+		 	wait_for_child(fd);
+		 	wait_for_child(fd);
+		 	
+		 	return 0;
+		 }
 	 \end{lstlisting}
 	 
 	 Результат работы программы изображен на Рисунке 4.
@@ -453,14 +450,7 @@
 	 		flag = 1;
 	 	}
 	 	
-	 	void waiting_for_signal()
-	 	{
-	 		printf("Press Ctrl + Z to continue\n");
-	 		signal(SIGTSTP, catch_signal);
-	 		sleep(3);
-	 	}
-	 	
-	 	pid_t fork_child(int child_num, int *fd)
+	 	pid_t fork_child(int child_num, int *fd, char* msg)
 	 	{
 	 		pid_t child = fork();
 	 		if (child == -1)
@@ -472,10 +462,8 @@
 	 		{
 	 			if (flag)
 	 			{
-	 				int pid_int = getpid();
-	 				void* pid = &pid_int;
 	 				close(fd[0]);
-	 				write(fd[1], pid, sizeof(pid));
+	 				write(fd[1], msg, sizeof(char) * (strlen(msg) + 1));
 	 			}
 	 			exit(0);
 	 		}
@@ -485,13 +473,14 @@
 	 	void wait_for_child(int *fd)
 	 	{
 	 		int stat_val;
-	 		void *pid = (void*)malloc(sizeof(void*));
+	 		char msg[128];
+	 		
 	 		pid_t child = wait(&stat_val);
 	 		if (flag)
 	 		{
 	 			close(fd[1]);
-	 			read(fd[0], pid, sizeof(pid));
-	 			printf("Child %d send %d\n", child, *(int*)pid);
+	 			read(fd[0], msg, sizeof(msg));
+	 			printf("Child %d send %s\n", child, msg);
 	 		}
 	 		else
 	 		printf("Child %d send NONE\n", child);
@@ -502,8 +491,6 @@
 	 		printf("Child %d ended with a non-intercepted signal with code %d\n", child, WTERMSIG(stat_val));
 	 		else if (WIFSTOPPED(stat_val))
 	 		printf("Child %d stopped with code %d\n", child, WSTOPSIG(stat_val));
-	 		
-	 		free(pid);
 	 	}
 	 	
 	 	int main()
@@ -516,10 +503,12 @@
 	 			exit(1);
 	 		}
 	 		
-	 		waiting_for_signal();
+	 		printf("Press Ctrl + Z to continue\n");
+	 		signal(SIGTSTP, catch_signal);
+	 		sleep(3);
 	 		
-	 		pid_t child_1 = fork_child(1, fd);
-	 		pid_t child_2 = fork_child(2, fd);
+	 		pid_t child_1 = fork_child(1, fd, "str 1\0");
+	 		pid_t child_2 = fork_child(2, fd, "unique string 2\0");
 	 		
 	 		printf("\nparent:\n\
 	 		pid = %d\n\
@@ -534,6 +523,7 @@
 	 	}
  	\end{lstlisting}
  	
+ 	\clearpage
  	Результат работы программы при перехвате сигнала показан на Рисунке 5.
  	\begin{figure}[h!]
  		\centering
