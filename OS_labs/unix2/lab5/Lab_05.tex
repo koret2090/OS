@@ -15,7 +15,7 @@
 
 \usepackage{listings}
 \lstset{ 
-	language=python,
+	language=c,
 	basicstyle=\small\sffamily, 
 	numbers=left, 
 	numberstyle=\tiny,
@@ -101,142 +101,299 @@
 \clearpage
 \textbf{Программа 1} \par
 
-
-
-
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[scale=1]{graphics/1.png}\\ Зависимость температуры от координаты в разные моменты времени при l = %10, x от 0 до 10.
-%\end{figure}\par
-%\
-
-
 \textbf{Листинг:}
 \begin{lstlisting}
-def k(T):
-	return a1 * (b1 + c1 * T ** m1)
-
-def c(T):
-	return a2 + b2 * T ** m2 - c2 / T ** 2
-
-def alpha(x):
-	d = (alphaN * l) / (alphaN - alpha0)
-	c = - alpha0 * d
-	return c / (x - d)
-
-def p(x):
-	return 2 / R * alpha(x)
-
-def f(x):
-	return 2 * T0 / R * alpha(x)
-
-def func_plus_1_2(x, step, func):
-	return (func(x) + func(x + step)) / 2
-
-def func_minus_1_2(x, step, func):
-	return (func(x) + func(x - step)) / 2
-
-def A(T):
-	return (k(T) + k(T - tau)) * tau / h / 2
-
-def D(T):
-	return (k(T) + k(T - tau)) * tau / h / 2
-
-def B(x, T):
-	return A(T) + D(T) + c(T) * h + p(x) * h * tau
-
-def F(x, T):
-	return f(x) * h * tau + c(T) * T * h
-
-def run_through(prevT):
-	(c(prevT[0]) + c(prevT[0] + tau)) / 2
-
-	K0 = h / 8 * (c(prevT[0]) + c(prevT[0] + tau)) / 2 + h / 4 * c(prevT[0]) + \
-	(k(prevT[0]) + k(prevT[0] + tau)) / 2 * tau / h + \
-	tau * h / 8 * p(h / 2) + tau * h / 4 * p(0)
+	#include <stdio.h>
+	#include <fcntl.h>
 	
-	M0 = h / 8 *  (c(prevT[0]) + c(prevT[0] + tau)) / 2 - \
-	(k(prevT[0]) + k(prevT[0] + tau)) / 2 * tau / h + \
-	tau * h * p(h / 2) / 8
-	
-	P0 = h / 8 * (c(prevT[0]) + c(prevT[0] + tau)) / 2 * (prevT[0] + prevT[1]) + \
-	h / 4 * c(prevT[0]) * prevT[0] + \
-	F0 * tau + tau * h / 8 * (3 * f(0) + f(h))
-	
-	KN = h / 8 * (c(prevT[-1]) + c(prevT[-1] - tau)) / 2 + h / 4 * c(prevT[-1]) + \
-	(k(prevT[-1]) + k(prevT[-1] - tau)) / 2 * tau / h + tau * alphaN + \
-	tau * h / 8 * p(l - h / 2) + tau * h / 4 * p(l)
-	
-	MN = h / 8 * (c(prevT[-1]) + c(prevT[-1] - tau)) / 2 - \
-	(k(prevT[-1]) + k(prevT[-1] - tau)) / 2 * tau / h + \
-	tau * h * p(l - h / 2) / 8
-	
-	PN = h / 8 * (c(prevT[-1]) + c(prevT[-1] - tau)) / 2 * (prevT[-1] + prevT[-2]) + \
-	h / 4 * c(prevT[-1]) * prevT[-1] + tau * alphaN * T0 + \
-	tau * h / 4 * (f(l) + f(l - h / 2))
-
-
-	eps = [0, -M0 / K0]
-	eta = [0, P0 / K0]
-	
-	x = h
-	n = 1
-	while (x + h < l):
-	eps.append(D(prevT[n]) / (B(x, prevT[n]) - A(prevT[n]) * eps[n]))
-	eta.append((F(x, prevT[n]) + A(prevT[n]) * eta[n]) / (B(x, prevT[n]) \
-	- A(prevT[n]) * eps[n]))
-	n += 1
-	x += h
-	
-	y = [0] * (n + 1)
-	y[n] = (PN - MN * eta[n]) / (KN + MN * eps[n])
-	
-	for i in range(n - 1, -1, -1):
-	y[i] = eps[i + 1] * y[i + 1] + eta[i + 1]
-	
-	return y
-
-def iter_method():
-	result = []
-	n = int(l / h)
-	T = [T0] * (n + 1)
-	newT = [0] * (n + 1)
-	ti = 0
-	
-	result.append(T)
-	
-	while (True):
-		buf = T
-		while True:
-			newT = run_through(buf)
-			if check_iter(buf, newT):
-				break
-			buf = newT
+	int main()
+	{
+		int fd = open("alph.txt", O_RDONLY);
 		
-		result.append(newT)
-		ti += tau
-		if (not check_eps(T, newT)):
-			break
+		FILE *fs1 = fdopen(fd, "r");
+		char buff1[20];
+		setvbuf(fs1, buff1, _IOFBF, 20);
 		
-		T = newT
+		FILE *fs2 = fdopen(fd, "r");
+		char buff2[20];
+		setvbuf(fs2, buff2, _IOFBF, 20);
+		
+		int flag1 = 1, flag2 = 2;
+		while(flag1 == 1 || flag2 == 1)
+		{
+			char c;
+			flag1 = fscanf(fs1, "%c", &c);
+			if (flag1 == 1)
+			fprintf(stdout, "%c", c);
+			
+			flag2 = fscanf(fs2, "%c", &c);
+			if (flag2 == 1) 
+			fprintf(stdout, "%c", c); 
+		}
+		
+		return 0;
+	}
+\end{lstlisting}\newpage
+
+\begin{figure}[h!]
+	\center{\includegraphics[scale=0.6]{examples/1.png}}
+	\caption{Результат  программы 1}
+\end{figure}\par
+
+Системный вызов open() создает дескриптор открытого на чтение файла. Open() возвращает индекс в массиве fd структуры files\_struct. fdopen() создает структуры типа FILE(fs1 и fs2), которые ссылаются на дескриптор, созданный системным вызовом open.
+
+Создаём буферы buff1 и buff2 размером 20 байт. С помощью setbuv задаём соответствующие буферы для дескрипторов fs1 и fs2 и устанавливаем тип буферизации \_IOFBF (полная буферизация).
+
+Далее в цикле fscanf() поочерёдно для fs1 и fs2. Так как установлена полная буферизация, то при первом вызове fscanf() буфер будет заполнен полностью, либо вплоть до конца файла, а f\_pos установится на следующий за последним записанным в буфер символ.
+
+При первом вызове fscanf(fs1,"\%c",\&c) в буфер buff1 считаются первые 20 символов (abcdefghijklmnopqrst), запись производится через переменную с, а затем выводится с помощью fprintf, символ 'a'.
+
+При первом вызове fscanf(fs2,"\%c",\&c), в буфер buff2 считываются оставшиеся в файле символы – uvwxyz (в с записывается символ 'u').
+
+Внутри цикла будут поочередно выводится символы издвух буферов до тех пор, пока символы в одном из буферов не закончатся. Тогда на экран будут последовательно выведены оставшиеся символы из другого буфера.
+
+\begin{figure}[h!]
+	\center{\includegraphics[scale=0.45]{schemes/1.jpg}}
+	\caption{Схема связей структур}
+\end{figure}\par
+
+\clearpage
+\textbf{Листинг:}
+\begin{lstlisting}
+#include<fcntl.h>
+
+int main()
+{
+	char c;    
+	int fd1 = open("alph.txt", O_RDONLY);
+	int fd2 = open("alph.txt", O_RDONLY);
 	
-	return result, ti
+	while(read(fd1, &c, 1) == 1 &&read(fd2, &c, 1) == 1)
+	{
+		write(1, &c, 1);
+		write(1, &c, 1);
+	}
+	return 0;
+}
+\end{lstlisting}\par
 
-def check_eps(T, newT):
-	for i in range(len(T)):
-		if fabs((T[i] - newT[i]) / newT[i]) > 1e-2:
-			return True
-	return False
+\begin{figure}[h!]
+	\center{\includegraphics[scale=0.6]{examples/2.png}}
+	\caption{Результат программы 2}
+\end{figure}\par
 
-def check_iter(T, newT):
-	max = fabs((T[0] - newT[0]) / newT[0])
-	for i in range(len(T)):
-		d = fabs(T[i] - newT[i]) / newT[i]
-		if d > max:
-			max = d
-	return max < 1
+Open() создаст два дескриптора одного файла, доступного
+только для чтения. Будут созданы две структуры struct file в общесистемной таблице открытых файлов. Таким образом, поля f\_pos в каждой из структур независимы.
 
+В цикле выполнятся read(), считывающий символ и write(), записывающий
+символ в стандартный поток. Указатель f\_pos изменяется независимо от другого дескриптора, поэтому каждый символ будет выведен дважды.
+
+\begin{figure}[h!]
+	\center{\includegraphics[scale=0.45]{schemes/2.jpg}}
+	\caption{Схема связей структур}
+\end{figure}\par
+
+\clearpage
+\textbf{Листинг:}
+\begin{lstlisting}
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <fcntl.h>
+void *reading(int *fd)
+{
+	char c;
+	while (read(*fd, &c, 1) == 1)
+	write(1, &c, 1);
+}
+int main()
+{
+	int fd1 = open("alph.txt", O_RDONLY);
+	int fd2 = open("alph.txt", O_RDONLY);
+	pthread_t thread1;
+	
+	int stat1 = pthread_create(&thread1, NULL, reading, &fd1);
+	if (stat1 != 0)
+	{
+		printf("Error. Can`t create thread 1\n");
+		return -1;
+	}
+	
+	reading(&fd2);
+	
+	pthread_join(thread1, NULL);
+	
+	return 0;
+}
 \end{lstlisting}
+
+\begin{figure}[h!]
+	\center{\includegraphics[scale=0.6]{examples/2.2.png}}
+	\caption{Результат программы 2 с потоками}
+\end{figure}\par
+Аналогично программе без потока, вызов open() создаст два независимых
+дескриптора открытых файлов, содержащих собственные значения f\_pos. В
+результате каждый поток выполнит чтение и запись независимо, что приведет к
+повтору каждого символа в результирующей строке.
+
+\newpage
+\textbf{Листинг:}
+\begin{lstlisting}
+	#include <stdio.h>
+	#include <sys/stat.h>
+	
+	int main()
+	{
+		struct stat stats;
+		
+		FILE *fp1 = fopen("alphChange.txt", "w");
+		stat("alphChange.txt", &stats);
+		printf("1:  inode - %d  size - %d\n", (int) stats.st_ino, (int) stats.st_size);
+		
+		FILE *fp2 = fopen("alphChange.txt", "w");
+		stat("alphChange.txt", &stats);
+		printf("2:  inode - %d  size - %d\n", (int) stats.st_ino, (int) stats.st_size);
+		
+		for (char c = 'a'; c <= 'z'; c++) 
+		{
+			if (c % 2 == 0)
+				fprintf(fp1, "%c", c);		
+			else
+				fprintf(fp2, "%c", c);
+		}	
+		fclose(fp1);
+		stat("alphChange.txt", &stats);
+		printf("1:  inode - %d  size - %d\n", (int) stats.st_ino, (int) stats.st_size);
+		
+		fclose(fp2);
+		stat("alphChange.txt", &stats);
+		printf("2:  inode - %d  size - %d\n", (int) stats.st_ino, (int) stats.st_size);
+		
+\end{lstlisting}
+
+\begin{figure}[h!]
+	\center{\includegraphics[scale=0.6]{examples/3.png}}
+	\caption{Результат программы 3}
+\end{figure}\par
+
+Функция fopen() возвращает указатель на
+открытый файл. Режим ‘w’ указывает на открытие файла только для записи; 
+система помещает указатель в начало файла.
+Если файл не существует - пробует его создать. Создаются дескриптора открытых файлов, следовательно, два независимых f\_pos.
+
+Функция fprintf() – функция буферизованного ввода/вывода.
+В цикле происходит запись каждого четного символа в один буфер, и нечетного в другой. Запись в файл из буфера
+происходит при вызове функции fclose().
+Поскольку сначала вызывается fclose(fp1), то буфер, ассоциированный с fp1
+будет записан в файл. 
+
+При следующем вызове fclose(fp2) содержимое файла будет
+перезаписано, в результате чего в нем окажутся лишь символы из буфера,
+связанного с fp2. Таким образом, данные из первого буфера будут утеряны.
+
+\begin{figure}[h!]
+	\center{\includegraphics[scale=0.45]{schemes/3.jpg}}
+	\caption{Схема связей структур}
+\end{figure}\par
+
+\newpage
+\textbf{Листинг:}
+\begin{lstlisting}
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <pthread.h>
+
+void *writing(int *fd)
+{
+	struct stat sb;
+	
+	FILE *fp = fopen("alphChange.txt", "w");
+	stat("alphChange.txt", &sb);
+	printf("%d:  inode - %d  size - %d\n", *fd, (int) sb.st_ino, (int)sb.st_size);
+	for (char c = 'a'; c <= 'z'; c++)
+	{
+		if (c % 2 == 0 && *fd % 2 == 1)
+		fprintf(fp, "%c", c);
+		
+		if (c % 2 == 1 && *fd % 2 == 0)
+		fprintf(fp, "%c", c);
+		
+	}
+	fclose(fp);
+	stat("alphChange.txt", &sb);
+	printf("%d:  inode - %d  size - %d\n", *fd, (int) sb.st_ino, (int)sb.st_size);
+}
+
+int main()
+{
+	pthread_t thread1, thread2;
+	int fd1 = 1, fd2 = 2;
+	
+	int stat1 = pthread_create(&thread1, NULL, writing, &fd1);
+	if (stat1 != 0)
+	{
+		printf("Error. Can`t create thread 1\n");
+		return -1;
+	}
+	writing(&fd2);
+	
+	pthread_join(thread1, NULL);
+	
+	return 0;
+}
+	\end{lstlisting}
+
+\begin{figure}[h!]
+	\center{\includegraphics[scale=0.6]{examples/3.2.png}}
+	\caption{Результат программы 3 с потоками}
+\end{figure}\par
+
+Аналогично программе без потоков, будут созданы два независимых
+дескриптора. Каждый из потоков будет выполнять запись символов в
+соответствующий буфер. И в результате вызова fclose() дважды, в файле
+сохранить содержимое того буфера, чей поток завершился последним.
+
+\newpage
+struct stat \{\\
+	dev\_t st\_dev; /* устройство */ \\
+	ino\_t st\_ino; /* inode */\\
+	mode\_t st\_mode; /* режим доступа */\\
+	nlink\_t st\_nlink; /* количество жестких ссылок */\\
+	uid\_t st\_uid; /* идентификатор пользователя-владельца */\\
+	gid\_t st\_gid; /* идентификатор группы-владельца */\\
+	dev\_t st\_rdev; /* тип устройства */\\
+	/* (если это устройство) */\\
+	off\_t st\_size; /* общий размер в байтах */\\
+	blksize\_t st\_blksize; /* размер блока ввода-вывода */\\
+	/* в файловой системе */\\
+	blkcnt\_t st\_blocks; /* количество выделенных блоков */\\
+	time\_t st\_atime; /* время последнего доступа */\\
+	time\_t st\_mtime; /* время последней модификации */\\
+	time\_t st\_ctime; /* время последнего изменения */\\
+\};\\
+
+\newpage
+typedef struct \_\_sFILE \{\\
+	…\\
+	unsigned char *\_p;\\
+	short \_flags;\\
+	short \_file;\\
+	struct \_\_sbuf \_bf;\\
+	…\\
+	void *\_cookie;\\
+	…\\
+	struct \_\_sbuf \_ub;\\
+	struct \_\_sFILEX *\_extra;\\
+	int \_ur;\\
+	…\\
+	unsigned char \_ubuf[3];\\
+	unsigned char \_nbuf[1];\\
+	…\\
+	struct \_\_sbuf \_lb;\\
+	int \_blksize;\\
+	fpos\_t\_offset;\\
+\} FILE;\\
 
 \end{document}
 
